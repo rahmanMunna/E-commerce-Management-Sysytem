@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "AssignedOrder";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center border-bottom border-top p-3">AssignedOrder</h2>
+<table class="table text-center">
+    <tr>
+        <th>Serial</th>
+        <th>Order Id</th>
+        <th>Order Date</th>
+        <th>Assigned Date</th>
+        <th>Customer Name</th>
+        <th>Total product</th>
+        <th>Grand Total</th>
+        <th>Assigned to</th>
+        <th>Status</th>
+        <th>Re-asign</th>
+
+    </tr>
+    @{ int idx = 0;}
+
+    @foreach (var orderTracker in Model)
+    {
+        <tr>
+            <td>@(++idx)</td>
+            @*<td>@orderTracker.Id</td>*@
+            <td>@orderTracker.Order.Id</td>
+            <td>@orderTracker.Order.Date</td>
+            <td>@orderTracker.AssignedTime</td>
+            <td>@orderTracker.Order.Customer.Name</td>
+            <td>@orderTracker.Order.NumberofProduct</td>
+            <td>@orderTracker.Order.GTotal</td>
+            <td>@orderTracker.Status.Name</td>
+            <td>@orderTracker.DeliveryMan.Name</td>
+        </tr>
+    }
+</table>
+

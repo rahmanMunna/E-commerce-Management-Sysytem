@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "DeliveredOrers";
+    Layout = "~/Views/Shared/_DeliveryLayout.cshtml";
+}
+
+<h2 class="text-center border-bottom border-top p-3 bg-warning">All Delivered Orders</h2>
+@if (Model == null)
+{
+    <h2 class="text-center alert alert-info">No Ordered has been delivered</h2>
+}
+else
+{
+    <table class="table text-center">
+        <tr>
+            <th>Serial</th>
+            <th>Order Id</th>
+            <th>Order Date</th>
+            <th>Assigned Date</th>
+            <th>Recieved Date</th>
+            <th>Delivared Date</th>
+            <th>Customer Name</th>
+            <th>Status</th>
+
+        </tr>
+        @{ int idx = 0;}
+
+        @foreach (var orderTrackerDb in Model)
+        {
+            <tr>
+                <td>@(++idx)</td>
+                <td>@orderTrackerDb.Order.Id</td>
+                <td>@orderTrackerDb.Order.Date</td>
+                <td>@orderTrackerDb.AssignedTime</td>
+                <td>@orderTrackerDb.RecievedTime</td>
+                <td>@orderTrackerDb.DeliveredTime</td>
+                <td>@orderTrackerDb.Order.Customer.Name</td>
+                <td>@orderTrackerDb.Status.Name</td>
+            </tr>
+        }
+
+
+    </table>
+}
+

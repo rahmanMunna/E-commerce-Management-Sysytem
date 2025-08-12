@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "ViewOrderDetails";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2 class="text-center mb-3">ViewOrderDetails</h2>
+@*<h3> Date : <span class="text-bg-info">@Model[0].Date</span> </h3>*@
+<table class="table table-striped">
+    <tr class="text-center">
+        <th>Prodcut Name</th>
+        <th>Qty</th>
+        <th>Ordered Price</th>
+        <th>Current Price Price</th>
+    </tr>
+    @foreach (var od in Model)
+    {
+        <tr class="text-center">
+            <td>@od.Product.Name</td>
+            <td>@od.Qty</td>
+            <td>@od.Price</td>
+            <td>@od.Product.Price</td>
+        </tr>
+    }
+</table>

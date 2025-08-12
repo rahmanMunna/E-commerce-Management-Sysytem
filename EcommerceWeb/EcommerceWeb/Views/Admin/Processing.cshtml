@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Processing";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+</style>
+
+
+<h2 class="text-center mb-4 border border-primary p-4">In Processing</h2>
+@if (TempData["Msg"] != null)
+{
+    <p class="text-center">@TempData["Msg"]</p>
+}
+<table class="table text-center">
+    <tr>
+        <th>Serial</th>
+        <th>Order Id</th>
+        <th>Order Date</th>
+        <th>Customer Name</th>
+        <th>Total Product</th>
+        <th>Grand Total</th>
+        <th>Status</th>
+        <th>Assigned to</th>
+
+    </tr>
+    @{ int idx = 0;}
+
+    @foreach (var order in Model)
+    {
+        <tr>
+            <td>@(++idx)</td>
+            <td>@order.Id</td>
+            <td>@order.Date</td>
+            <td>@order.Customer.Name</td>
+            <td>@order.NumberofProduct</td>
+            <td>@order.GTotal</td>
+            <td>@order.Status.Name</td>
+            <td>
+                <form method="post">
+                    <select name="DeliveryManId" class="p-2">
+                        <option value="" selected disabled>Select an Delevery man</option>
+                        @foreach (var dm in ViewBag.DeliveryMen)
+                        {
+                            <option value="@dm.Id">@dm.Name</option>    
+                        }
+                    </select>
+                    <input type="hidden" name="OrderId" value="@order.Id"  />
+                    <input class="btn btn-outline-info" type="submit" value="Assign" />
+                </form>
+            </td>
+
+        </tr>
+    }
+</table>

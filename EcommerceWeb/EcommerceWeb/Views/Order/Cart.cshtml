@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>Cart</h2>
+@{ 
+    decimal total = 0;
+
+}
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Product Name</th>
+        <th>Qty</th>
+        <th>Price</th>
+    </tr>
+    @if (Model != null)
+    {
+        
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Qty</td>
+                <td>@item.Price</td>
+            </tr>
+            {
+                
+                total += item.Qty * item.Price;
+            }
+
+        }
+        <tr class="text-bg-danger">
+            <td colspan="2">Grant Total</td>
+            <td class="">
+                @total
+            </td>
+        </tr>
+        
+    }
+
+</table>
+@{ 
+    if(Model != null)
+    {
+    <form method="post" action="/Order/PlaceOrder" class="text-end">
+        <input type="hidden" name="total" value="@total" />
+        <input type="hidden" name="totalProduct" value="@Model.Count" />
+        <input type="submit" value="Place Order" class="btn btn-danger" />
+        
+    </form>
+    }
+}
+
+
+

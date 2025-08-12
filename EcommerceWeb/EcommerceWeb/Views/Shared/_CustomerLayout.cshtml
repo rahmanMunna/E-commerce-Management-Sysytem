@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_CustomerLayout</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <div class="text-center mt-5">
+        @if (Session["User"] != null)
+        {
+            var user = (EcommerceWeb.Ef.User)Session["User"];
+            <h3>Welcome <span class="text-info">@user.Username</span></h3>
+        }
+    </div>
+
+    
+    <nav class="d-flex justify-content-center gap-4 mt-5">
+        <a href="/Order/Index" class="btn btn-outline-success">
+            Home
+        </a>
+        <a href="/Order/ViewPlacesOrder" class="btn btn-outline-danger">
+            View Placed Order
+        </a>
+        <a href="/Customer/RecievedOrders" class="btn btn-outline-info text-dark">
+            Recieved Orders
+        </a>
+
+        @{ int count = 0;
+            if (Session["cart"] != null)
+            {
+                var cart = (List<EcommerceWeb.DTO.ProductDTO>)Session["cart"];
+                count = cart.Count;
+            }
+        }
+        <a href="/order/cart">Cart(@count)</a>
+        <a class="btn btn-outline-danger" href="/Logout/Index">Logout</a>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

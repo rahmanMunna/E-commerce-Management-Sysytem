@@ -1,0 +1,137 @@
+﻿@{
+    Layout = null;
+    @Styles.Render("~/Content/css")
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            width: 900px;
+            height: 500px;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Left Side */
+        .left-panel {
+            flex: 1;
+            background: linear-gradient(135deg, #2a5298, #1e3c72);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+        }
+
+            .left-panel h2 {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+
+            .left-panel p {
+                font-size: 1rem;
+                opacity: 0.85;
+            }
+
+        /* Right Side (Form) */
+        .right-panel {
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-floating {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            padding: 14px;
+            font-size: 1rem;
+        }
+
+            .form-control:focus {
+                border-color: #2a5298;
+                box-shadow: 0 0 0 0.2rem rgba(42, 82, 152, 0.25);
+            }
+
+        .btn-primary {
+            background-color: #2a5298;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+            .btn-primary:hover {
+                background-color: #1e3c72;
+                transform: scale(1.02);
+            }
+
+        .text-muted {
+            font-size: 0.9rem;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Left Side -->
+        <div class="left-panel">
+            <h2>Welcome Back</h2>
+            <p>Login to your account to continue your journey with us.</p>
+        </div>
+
+        <!-- Right Side (Login Form) -->
+        <div class="right-panel m-5">
+            <h3 class="mb-4 text-center">Sign In</h3>
+            <div>
+                <form method="post">
+                    <div class="form-floating">
+                        <input name="Username" type="text" class="form-control" id="username" placeholder="Enter username" required>
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="form-floating w-100">
+                        <input name="Password" type="password" class="form-control " id="password" placeholder="Enter password" required>
+                        <label for="password">Password</label>
+                    </div>
+                    <input type="submit" value="Login" class="btn btn-primary w-100" />
+
+                    @if (TempData["Msg"] != null)
+                    {
+                        <p class="text-center text-bg-success @TempData["Class"] mt-3">@TempData["Msg"]</p>
+                    }
+
+                    <p class="text-muted text-center">Don't have an account? <a href="/Signup/Index">Sign up</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

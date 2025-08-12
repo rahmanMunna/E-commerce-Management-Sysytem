@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center mb-4 border border-primary p-4">Placed Order Details</h2>
+@if (TempData["Msg"] != null)
+{
+   <div class="alert alert-success" role="alert">
+    @TempData["Msg"]
+</div>
+}
+<table class="table text-center">
+    <tr>
+        <th>Serial</th>
+        <th>Order Id</th>
+        <th>Order Date</th>
+        <th>Customer Name</th>
+        <th>Total Product</th>
+        <th>Grand Total</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    @{ int idx = 0;}
+
+    @foreach (var order in Model)
+    {
+        <tr>
+            <td>@(++idx)</td>
+            <td>@order.Id</td>
+            <td>@order.Date</td>
+            <td>@order.Customer.Name</td>
+            <td>@order.NumberofProduct</td>
+            <td>@order.GTotal</td>
+            <td>@order.Status.Name</td>
+            <td>
+                <a href="/Order/ConfirmOrder/@order.Id" class="btn btn-outline-success">
+                    Confirm
+                </a>
+                <a href="/Order/CancelOrder/@order.Id" class="btn btn-outline-danger">
+                    Cancel
+                </a>
+            </td>
+        </tr>
+    }
+</table>

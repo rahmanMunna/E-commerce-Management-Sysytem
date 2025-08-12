@@ -1,0 +1,57 @@
+﻿
+@{
+    
+    Layout = null;
+   
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_AdminLayout</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="text-center mt-5">
+        @if (Session["User"] != null)
+        {
+            var user = (EcommerceWeb.Ef.User)Session["User"];
+            <h3>Welcome <span class="text-info">@user.Username</span></h3>
+        }
+    </div>
+    <nav class="d-flex justify-content-center gap-4 mt-5">
+
+        <a href="/Admin/AddProduct" class="btn btn-outline-primary text-dark">
+            Add Product
+        </a>
+        <a href="/Admin/AllOrder" class="btn btn-outline-info text-dark">
+            All Order
+        </a>
+        <a href="/Admin/index" class="btn btn-outline-warning ">
+            Order Placed
+        </a>
+        <a href="/Admin/Processing" class="btn btn-outline-success">
+            Processing
+        </a>
+        <a href="/Admin/AssignedQueue" class="btn btn-outline-secondary">
+            Assigneed Order
+        </a>
+        <a href="/Admin/Cancelled" class="btn btn-outline-danger">
+            Cancelled
+        </a>
+        <a class="btn btn-outline-danger" href="/Logout/Index">Logout</a>
+
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

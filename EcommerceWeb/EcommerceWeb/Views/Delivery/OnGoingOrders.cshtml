@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "ReceivedOrders";
+    Layout = "~/Views/Shared/_DeliveryLayout.cshtml";
+}
+
+<h2 class="text-center border-bottom border-top p-3 bg-warning">All Ongoing Orders</h2>
+<table class="table text-center">
+    <tr>
+        <th>Serial</th>
+        <th>Order Id</th>
+        <th>Order Date</th>
+        <th>Assigned Date</th>
+        <th>Customer Name</th>
+        <th>Status</th>
+        <th>Action</th>
+
+
+    </tr>
+    @{ int idx = 0;}
+
+    @foreach (var orderTrackerDb in Model)
+    {
+        <tr>
+            <td>@(++idx)</td>
+            <td>@orderTrackerDb.Order.Id</td>
+            <td>@orderTrackerDb.Order.Date</td>
+            <td>@orderTrackerDb.AssignedTime</td>
+            <td>@orderTrackerDb.Order.Customer.Name</td>
+            <td>@orderTrackerDb.Status.Name</td>
+
+            <td>
+                <a class="btn btn-outline-danger" href="/Delivery/Delivered/@orderTrackerDb.Id">
+                    Delivered
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+

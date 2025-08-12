@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a6690ee8de494853b0fdf7370c3f152b" Name="Diagram1">
+        <EntityTypeShape EntityType="EcommerceMSModel.OrderDetail" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcommerceMSModel.Status" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcommerceMSModel.Product" Width="1.5" PointX="7.375" PointY="0.875" />
+        <AssociationConnector Association="EcommerceMSModel.FK_OrderDetails_Products" />
+        <EntityTypeShape EntityType="EcommerceMSModel.Order" Width="1.5" PointX="3" PointY="3" />
+        <AssociationConnector Association="EcommerceMSModel.FK_OrderDetails_Orders" />
+        <AssociationConnector Association="EcommerceMSModel.FK_Orders_Status" />
+        <EntityTypeShape EntityType="EcommerceMSModel.Customer" Width="1.5" PointX="0.75" PointY="2.375" />
+        <AssociationConnector Association="EcommerceMSModel.FK_Orders_Customers" />
+        <EntityTypeShape EntityType="EcommerceMSModel.User" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="EcommerceMSModel.DeliveryMan" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="EcommerceMSModel.OrderTarcker" Width="1.5" PointX="9.625" PointY="3.125" />
+        <AssociationConnector Association="EcommerceMSModel.FK_OrderTarcker_DeliveryMan" />
+        <AssociationConnector Association="EcommerceMSModel.FK_OrderTarcker_Orders" />
+        <AssociationConnector Association="EcommerceMSModel.FK_OrderTarcker_Status" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
