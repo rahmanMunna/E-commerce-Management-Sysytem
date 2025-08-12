@@ -1,10 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Asp.Net Backend Development\\EcommerceWeb\\",
+  "WorkspaceRootPath": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\asp.net backend development\\ecommerceweb\\ecommerceweb\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\models\\newuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\models\\newuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\controllers\\signupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\controllers\\signupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\models\\passwordattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\models\\passwordattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\controllers\\logoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\controllers\\logoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,15 +46,80 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PasswordAttribute.cs",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Models\\PasswordAttribute.cs",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Models\\PasswordAttribute.cs",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Models\\PasswordAttribute.cs",
+              "RelativeToolTip": "EcommerceWeb\\Models\\PasswordAttribute.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T18:48:09.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "_ViewStart.cshtml",
-              "DocumentMoniker": "E:\\Asp.Net Backend Development\\EcommerceWeb\\EcommerceWeb\\Views\\_ViewStart.cshtml",
-              "RelativeDocumentMoniker": "EcommerceWeb\\Views\\_ViewStart.cshtml",
-              "ToolTip": "E:\\Asp.Net Backend Development\\EcommerceWeb\\EcommerceWeb\\Views\\_ViewStart.cshtml",
-              "RelativeToolTip": "EcommerceWeb\\Views\\_ViewStart.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAnAAAAAAAAAA==",
+              "Title": "NewUser.cs",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Models\\NewUser.cs",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Models\\NewUser.cs",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Models\\NewUser.cs",
+              "RelativeToolTip": "EcommerceWeb\\Models\\NewUser.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T18:28:18.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Login\\Index.cshtml",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Views\\Login\\Index.cshtml",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Login\\Index.cshtml",
+              "RelativeToolTip": "EcommerceWeb\\Views\\Login\\Index.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAGcAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-12T17:16:53.915Z",
+              "WhenOpened": "2025-08-12T18:24:09.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SignupController.cs",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\SignupController.cs",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Controllers\\SignupController.cs",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\SignupController.cs",
+              "RelativeToolTip": "EcommerceWeb\\Controllers\\SignupController.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAA5wDcAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T18:21:22.035Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LogoutController.cs",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\LogoutController.cs",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Controllers\\LogoutController.cs",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\LogoutController.cs",
+              "RelativeToolTip": "EcommerceWeb\\Controllers\\LogoutController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T18:21:09.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Controllers\\LoginController.cs",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "EcommerceWeb\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAADgvz4AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T18:20:33.822Z",
               "EditorCaption": ""
             }
           ]

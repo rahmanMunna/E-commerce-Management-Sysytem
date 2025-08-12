@@ -27,3 +27,11 @@ namespace EcommerceWeb.Auth
         }
     }
 }
+
+//HttpContextBase
+// ├── Request        // Info about incoming HTTP request (URL, QueryString, Form data, Headers)
+// ├── Response       // Info about outgoing HTTP response (status code, cookies, output)
+// ├── Session        // Server-side data saved for a user between requests
+// ├── User           // Identity & roles of the current logged-in user
+// ├── Server         // Utility methods (map paths, encode HTML, etc.)
+// ├── Items          // Temporary storage for this single request

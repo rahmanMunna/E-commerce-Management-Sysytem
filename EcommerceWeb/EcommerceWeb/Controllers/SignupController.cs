@@ -34,6 +34,8 @@ namespace EcommerceWeb.Controllers
 
             return View();
         }
+
+
         [HttpPost]
         public ActionResult Index(NewUser newUser)
         {
@@ -51,12 +53,16 @@ namespace EcommerceWeb.Controllers
 
             db.SaveChanges();
 
+            //Insert to Users table
+
+            // Hash the password using MD5
+            string hashedPassword = GetMd5Hash(newUser.Password);
 
             var userDTO = new UserDTO
             {
                 Username = newUser.Name + customerDb.Id,
                 Email = newUser.Email,
-                Password = newUser.Password,
+                Password = hashedPassword,
                 Role = "customer",
                 CustomerId = (int)customerDb.Id
             };

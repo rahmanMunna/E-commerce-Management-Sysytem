@@ -133,7 +133,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Auth\AdminLogged.cs" />
-    <Compile Include="Auth\AuthorizeAtribute.cs" />
     <Compile Include="Auth\CustomerLogged.cs" />
     <Compile Include="Auth\DeliveryLogged.cs" />
     <Compile Include="Auth\Logged.cs" />
@@ -198,6 +197,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\NewUser.cs" />
+    <Compile Include="Models\PasswordAttribute.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
