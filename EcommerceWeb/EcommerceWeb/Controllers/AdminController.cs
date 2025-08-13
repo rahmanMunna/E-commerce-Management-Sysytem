@@ -2,6 +2,7 @@
 using EcommerceWeb.Auth;
 using EcommerceWeb.DTO;
 using EcommerceWeb.Ef;
+using EcommerceWeb.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,30 +15,16 @@ namespace EcommerceWeb.Controllers
     {
         EcommerceMSEntities db = new EcommerceMSEntities();
 
-        static Mapper GetMapper()
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<Product, ProductDTO>().ReverseMap();
-                cfg.CreateMap<Order, OrderDTO>().ReverseMap();
-                cfg.CreateMap<OrderDetail, OrderDetailDTO>().ReverseMap();
-                cfg.CreateMap<Status, StatusDTO>().ReverseMap();
-                cfg.CreateMap<Customer, CustomerDTO>().ReverseMap();
-            });
-
-            var mapper = new Mapper(config);
-            return mapper;
-        }
         // GET: Admin
         [Logged]
         [AdminLogged]
         public ActionResult Index()
         {
-            //OrderDb
-            var placedOrderDb = (from order in db.Orders
+            //Placed Orders
+            var OrderDb = (from order in db.Orders
                               where order.StatusId == 1 
                               select order).ToList();
-            var orderDTO = GetMapper().Map<List<OrderDTO>>(placedOrderDb);
+            var orderDTO = MapperHelper.GetMapper().Map<List<OrderDTO>>(OrderDb);
             
 
             return View(orderDTO);
@@ -45,7 +32,7 @@ namespace EcommerceWeb.Controllers
         public ActionResult AllOrder()
         {
             var placedOrderDb = db.Orders.ToList();
-            var orderDTO = GetMapper().Map<List<OrderDTO>>(placedOrderDb);
+            var orderDTO = MapperHelper.GetMapper().Map<List<OrderDTO>>(placedOrderDb);
 
 
             return View(orderDTO);
@@ -59,7 +46,7 @@ namespace EcommerceWeb.Controllers
             var orderDb = (from order in db.Orders
                                  where order.StatusId == 2
                                  select order).ToList();
-            var orderDTO = GetMapper().Map<List<OrderDTO>>(orderDb);
+            var orderDTO = MapperHelper.GetMapper().Map<List<OrderDTO>>(orderDb);
 
             //Load DeliveryMan and attach to ViewBag    
             ViewBag.DeliveryMen = db.DeliveryMen.ToList();
@@ -113,7 +100,7 @@ namespace EcommerceWeb.Controllers
             var placedOrderDb = (from order in db.Orders
                                  where order.StatusId == 5
                                  select order).ToList();
-            var orderDTO = GetMapper().Map<List<OrderDTO>>(placedOrderDb);
+            var orderDTO = MapperHelper.GetMapper().Map<List<OrderDTO>>(placedOrderDb);
 
 
             return View(orderDTO);
@@ -139,7 +126,7 @@ namespace EcommerceWeb.Controllers
 
             if (existingProduct == null)
             {
-                var productDb = GetMapper().Map<Product>(prd);
+                var productDb = MapperHelper.GetMapper().Map<Product>(prd);
                 db.Products.Add(productDb);
             }
             else

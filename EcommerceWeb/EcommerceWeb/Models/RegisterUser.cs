@@ -6,7 +6,7 @@ using System.Web;
 
 namespace EcommerceWeb.Models
 {
-    public class NewUser
+    public class RegisterUser
     {
         [Required]
         [StringLength(50, ErrorMessage = "Username cannot be longer than 50 characters.")]
@@ -16,7 +16,7 @@ namespace EcommerceWeb.Models
         public string Email { get; set; }
 
         [Required]
-        [RegularExpression(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&()_+\-}{\]\[])[A-Za-z\d!@#$%^&()_+\-}{\]\[]]{8,16}$",ErrorMessage = "Password Structure is not Correct")]
+        [RegularExpression(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&()_+\-}{\]\[])[A-Za-z\d!@#$%^&()_+\-}{\]\[]]{8,16}$", ErrorMessage = "Password Structure is not Correct")]
         [StringLength(16, MinimumLength = 8, ErrorMessage = "Password must be between 8 and 16 characters.")]
         public string Password { get; set; }
         [Required]
@@ -27,6 +27,5 @@ namespace EcommerceWeb.Models
         [Required]
         [RegularExpression(@"^\d{11}$", ErrorMessage = "Phone number must be 11 digits.")]
         public string Phone { get; set; }
-       
     }
 }

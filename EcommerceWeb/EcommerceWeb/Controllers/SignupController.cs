@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using EcommerceWeb.DTO;
 using EcommerceWeb.Ef;
+using EcommerceWeb.Helpers;
 using EcommerceWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -16,17 +17,7 @@ namespace EcommerceWeb.Controllers
     {
         EcommerceMSEntities db = new EcommerceMSEntities();
 
-        static Mapper GetMapper()
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<Customer,CustomerDTO>().ReverseMap();
-                cfg.CreateMap<Ef.User,UserDTO>().ReverseMap();
-            });
-
-            var mapper = new Mapper(config);
-            return mapper;
-        }
+        
         // GET: Signup
         [HttpGet]
         public ActionResult Index()
@@ -37,7 +28,7 @@ namespace EcommerceWeb.Controllers
 
 
         [HttpPost]
-        public ActionResult Index(NewUser newUser)
+        public ActionResult Index(RegisterUser newUser)
         {
 
             if(newUser.Password == newUser.ConfirmPassword)
@@ -50,16 +41,14 @@ namespace EcommerceWeb.Controllers
 
                 };
 
-                var customerDb = GetMapper().Map<Customer>(customerDTO);
+                var customerDb = MapperHelper.GetMapper().Map<Customer>(customerDTO);
                 db.Customers.Add(customerDb);
-
                 db.SaveChanges();
 
-                //Insert to Users table
-
                 // Hash the password using MD5
-                string hashedPassword = GetMd5Hash(newUser.Password);
+                string hashedPassword = HashHelper.GetMd5Hash(newUser.Password);
 
+                //Insert to Users table
                 var userDTO = new UserDTO
                 {
                     Username = newUser.Name + customerDb.Id,
@@ -69,7 +58,7 @@ namespace EcommerceWeb.Controllers
                     CustomerId = (int)customerDb.Id
                 };
 
-                var userDb = GetMapper().Map<Ef.User>(userDTO);
+                var userDb = MapperHelper.GetMapper().Map<Ef.User>(userDTO);
 
 
                 db.Users.Add(userDb);
@@ -91,24 +80,6 @@ namespace EcommerceWeb.Controllers
             }
         }
 
-        static string GetMd5Hash(string input)
-        {
-            // Create MD5 instance
-            using (MD5 md5 = MD5.Create())
-            {
-                // Convert input string to byte array
-                byte[] inputBytes = Encoding.UTF8.GetBytes(input);
-
-                // Compute the MD5 hash
-                byte[] hashBytes = md5.ComputeHash(inputBytes);
-
-                // Convert byte array to hexadecimal string
-                StringBuilder sb = new StringBuilder();
-                foreach (var b in hashBytes)
-                    sb.Append(b.ToString("x2"));  // x2 = lowercase hex format
-
-                return sb.ToString();
-            }
-        }
+       
     }
 }

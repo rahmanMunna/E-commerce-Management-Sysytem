@@ -13,20 +13,7 @@ namespace EcommerceWeb.Controllers
     {
         // GET: Customer
         EcommerceMSEntities db = new EcommerceMSEntities();
-        static Mapper GetMapper()
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<Order,Order>().ReverseMap();
-
-            });
-
-            var mapper = new Mapper(config);
-            return mapper;
-
-
-        }
-
+        
         User GetUser()
         {
             var user = (User)Session["User"];
@@ -46,6 +33,7 @@ namespace EcommerceWeb.Controllers
         [CustomerLogged]
         public ActionResult RecievedOrders()
         {
+            //need to implement DTO
             var user = GetUser();
             var orderTrackerDb = (from ot in db.OrderTarckers
                                   where ot.Order.CustomerId == user.CustomerId

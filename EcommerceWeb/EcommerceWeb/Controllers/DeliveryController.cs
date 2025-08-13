@@ -13,19 +13,7 @@ namespace EcommerceWeb.Controllers
     public class DeliveryController : Controller
     {
         EcommerceMSEntities db = new EcommerceMSEntities();
-        static Mapper GetMapper()
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<OrderTarcker, OrderTrackerDTO>().ReverseMap();
-               
-            });
-
-            var mapper = new Mapper(config);
-            return mapper;
-
-      
-        }
+        
         // GET: Delivery
 
         User GetUser()

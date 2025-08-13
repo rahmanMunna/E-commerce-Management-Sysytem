@@ -1,4 +1,5 @@
 ﻿using EcommerceWeb.Ef;
+using EcommerceWeb.Helpers;
 using EcommerceWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -23,9 +24,9 @@ namespace EcommerceWeb.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(Models.User user)
+        public ActionResult Index(Models.LoginUser user)
         {
-            string hashedPassword = GetMd5Hash(user.Password);
+            string hashedPassword = HashHelper.GetMd5Hash(user.Password);
 
             var userDb = (from u in db.Users
                          where u.Username == user.Username && u.Password == hashedPassword
@@ -58,32 +59,7 @@ namespace EcommerceWeb.Controllers
 
             
         }
-        static string GetMd5Hash(string input)
-        {
-            if (input != null)
-            {
-                // Create MD5 instance
-                using (MD5 md5 = MD5.Create())
-                {
-                    // Convert input string to byte array
-                    byte[] inputBytes = Encoding.UTF8.GetBytes(input);
-
-                    // Compute the MD5 hash
-                    byte[] hashBytes = md5.ComputeHash(inputBytes);
-
-                    // Convert byte array to hexadecimal string
-                    StringBuilder sb = new StringBuilder();
-                    foreach (var b in hashBytes)
-                        sb.Append(b.ToString("x2"));  // x2 = lowercase hex format
-
-                    return sb.ToString();
-                }
-            }
-            return null;
-
-
-        }
-
+        
 
     }
 }
