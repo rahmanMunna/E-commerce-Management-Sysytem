@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\views\\signup\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\signup\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\models\\newuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\models\\newuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\controllers\\signupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\controllers\\signupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\controllers\\signupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\controllers\\logoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\controllers\\logoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\controllers\\logoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,20 +50,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Signup\\Index.cshtml",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Views\\Signup\\Index.cshtml",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Signup\\Index.cshtml",
+              "RelativeToolTip": "EcommerceWeb\\Views\\Signup\\Index.cshtml",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAFkAAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-13T06:49:20.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Models\\User.cs",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Models\\User.cs",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Models\\User.cs",
+              "RelativeToolTip": "EcommerceWeb\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T06:44:38.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "NewUser.cs",
               "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Models\\NewUser.cs",
               "RelativeDocumentMoniker": "EcommerceWeb\\Models\\NewUser.cs",
               "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Models\\NewUser.cs",
               "RelativeToolTip": "EcommerceWeb\\Models\\NewUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-12T18:28:18.114Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
               "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Login\\Index.cshtml",
               "RelativeDocumentMoniker": "EcommerceWeb\\Views\\Login\\Index.cshtml",
@@ -63,25 +97,24 @@
               "RelativeToolTip": "EcommerceWeb\\Views\\Login\\Index.cshtml",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAGcAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-12T18:24:09.828Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-12T18:24:09.828Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "SignupController.cs",
               "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\SignupController.cs",
               "RelativeDocumentMoniker": "EcommerceWeb\\Controllers\\SignupController.cs",
               "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\SignupController.cs",
               "RelativeToolTip": "EcommerceWeb\\Controllers\\SignupController.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAA5wDcAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAqwFkAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-12T18:21:22.035Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "LogoutController.cs",
               "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\LogoutController.cs",
               "RelativeDocumentMoniker": "EcommerceWeb\\Controllers\\LogoutController.cs",
@@ -94,16 +127,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "LoginController.cs",
               "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "EcommerceWeb\\Controllers\\LoginController.cs",
               "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\LoginController.cs",
               "RelativeToolTip": "EcommerceWeb\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAASwD4AAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAADgvz4AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T18:20:33.822Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-12T18:20:33.822Z"
             }
           ]
         }

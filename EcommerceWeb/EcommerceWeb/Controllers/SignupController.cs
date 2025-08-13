@@ -40,45 +40,55 @@ namespace EcommerceWeb.Controllers
         public ActionResult Index(NewUser newUser)
         {
 
-            var customerDTO = new Customer
+            if(newUser.Password == newUser.ConfirmPassword)
             {
-                Name = newUser.Name,
-                Email = newUser.Email,
-                Phone = newUser.Phone,
-                
-            };
+                var customerDTO = new Customer
+                {
+                    Name = newUser.Name,
+                    Email = newUser.Email,
+                    Phone = newUser.Phone,
 
-            var customerDb = GetMapper().Map<Customer>(customerDTO);
-            db.Customers.Add(customerDb);
+                };
 
-            db.SaveChanges();
+                var customerDb = GetMapper().Map<Customer>(customerDTO);
+                db.Customers.Add(customerDb);
 
-            //Insert to Users table
+                db.SaveChanges();
 
-            // Hash the password using MD5
-            string hashedPassword = GetMd5Hash(newUser.Password);
+                //Insert to Users table
 
-            var userDTO = new UserDTO
+                // Hash the password using MD5
+                string hashedPassword = GetMd5Hash(newUser.Password);
+
+                var userDTO = new UserDTO
+                {
+                    Username = newUser.Name + customerDb.Id,
+                    Email = newUser.Email,
+                    Password = hashedPassword,
+                    Role = "customer",
+                    CustomerId = (int)customerDb.Id
+                };
+
+                var userDb = GetMapper().Map<Ef.User>(userDTO);
+
+
+                db.Users.Add(userDb);
+
+                db.SaveChanges();
+
+                TempData["Msg"] = "Signup successful. Please login to continue.";
+                TempData["Class"] = "text-success";
+
+
+                return RedirectToAction("Index", "Login");
+            }
+            else
             {
-                Username = newUser.Name + customerDb.Id,
-                Email = newUser.Email,
-                Password = hashedPassword,
-                Role = "customer",
-                CustomerId = (int)customerDb.Id
-            };
-
-            var userDb = GetMapper().Map<Ef.User>(userDTO);  
-              
-
-            db.Users.Add(userDb);
-
-            db.SaveChanges();
-
-            TempData["Msg"] = "Signup successful. Please login to continue.";
-            TempData["Class"] = "text-success";
-
-
-            return RedirectToAction("Index", "Login");
+                               
+                TempData["Msg"] = "Password and Confirm Password do not match.";
+                TempData["Class"] = "text-danger";
+                return View();
+            }
         }
 
         static string GetMd5Hash(string input)

@@ -23,6 +23,7 @@ namespace EcommerceWeb.Models
         [RegularExpression(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&()_+\-}{\]\[])[A-Za-z\d!@#$%^&()_+\-}{\]\[]]{8,16}$", ErrorMessage = "Password Structure is not Correct")]
         [StringLength(16, MinimumLength = 8, ErrorMessage = "Password must be between 8 and 16 characters.")]
         public string ConfirmPassword { get; set; }
+
         [Required]
         [RegularExpression(@"^\d{11}$", ErrorMessage = "Phone number must be 11 digits.")]
         public string Phone { get; set; }
