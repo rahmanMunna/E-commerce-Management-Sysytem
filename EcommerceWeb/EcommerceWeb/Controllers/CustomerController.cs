@@ -31,15 +31,16 @@ namespace EcommerceWeb.Controllers
 
         [Logged]
         [CustomerLogged]
-        public ActionResult RecievedOrders()
+        public ActionResult ReceivedOrders()
         {
             //need to implement DTO
             var user = GetUser();
-            var orderTrackerDb = (from ot in db.OrderTarckers
+            var orderTrackerDb = (from ot in db.OrderTarckers // not OrderTarckers
                                   where ot.Order.CustomerId == user.CustomerId
-                                  && ot.StatusId == 6 // 6 = delivered
+                                  && ot.StatusId == 6 // Delivered
                                   select ot).ToList();
-                                                   
+
+
             return View(orderTrackerDb);
         }
     }

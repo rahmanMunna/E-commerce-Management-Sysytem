@@ -1,63 +1,179 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>_CustomerLayout</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>E-Shop</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f3f5;
+            color: #212529;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content {
+            flex: 1;
+            padding-top: 160px; /* Offset for fixed header + nav */
+        }
+
+        /* Fixed Header + Nav */
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header {
+            background: linear-gradient(to right, #0d6efd, #6610f2);
+            color: white;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.8rem;
+            color: white !important;
+        }
+
+        .welcome-msg span {
+            color: #ffc107;
+        }
+
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav .btn {
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 30px 0;
+            margin-top: auto; /* Push footer to bottom */
+        }
+
+        footer h5 {
+            font-weight: bold;
+        }
+
+        footer a {
+            color: #adb5bd;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Responsive tweaks */
+       
+    </style>
 </head>
 <body>
+    <div class="wrapper">
+        <!-- Fixed Header + Nav -->
+        <div class="fixed-header">
+            <!-- Header -->
+            <header class="py-3">
+                <div class="container d-flex justify-content-between align-items-center">
+                    <a class="navbar-brand" href="/">E-Shop</a>
+                    <div class="welcome-msg">
+                        @if (Session["User"] != null)
+                        {
+                            var user = (EcommerceWeb.Ef.User)Session["User"];
+                            <span class="h5">Welcome, <strong>@user.Username</strong></span>
+                        }
+                    </div>
+                </div>
+            </header>
 
-    <div class="text-center mt-5">
-        @if (Session["User"] != null)
-        {
-            var user = (EcommerceWeb.Ef.User)Session["User"];
-            <h3>Welcome <span class="text-info">@user.Username</span></h3>
-        }
-    </div>
+            <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+                <div class="container justify-content-center flex-wrap gap-2 py-2">
+                    <a href="/Order/Index" class="btn btn-outline-primary">🏠 Home</a>
+                    <a href="/Order/ViewPlacedOrders" class="btn btn-outline-info">📦 Placed</a>
+                    <a href="/Order/InProgress" class="btn btn-outline-warning">🔄 In Progress</a>
+                    <a href="/Customer/ReceivedOrders" class="btn btn-outline-success">✅ Received</a>
+                    <a href="/Order/CancelledOrders" class="btn btn-outline-danger">❌ Cancelled</a>
+                    <a href="/Logout/Index" class="btn btn-outline-dark">🚪 Logout</a>
 
+                    @{
+                        int count = 0;
+                        if (Session["cart"] != null)
+                        {
+                            var cart = (List<EcommerceWeb.DTO.ProductDTO>)Session["cart"];
+                            count = cart.Count;
+                        }
+                    }
+                    <a href="/order/cart" class="btn btn-outline-primary">🛒 Cart (@count)</a>
+                </div>
+            </nav>
+        </div>
 
-    <nav class="d-flex justify-content-center gap-4 mt-5">
-        <a href="/Order/Index" class="btn btn-outline-success">
-            Home
-        </a>
-        <a href="/Order/ViewPlacedOrders" class="btn btn-outline-info text-dark">
-            Placed
-        </a>
-        <a href="/Order/InProgress" class="btn btn-outline-danger">
-            In Progress
-        </a>
-        <a href="/Customer/RecievedOrders" class="btn btn-outline-info text-dark">
-            Recieved
-        </a>
-        <a href="/Order/CencelledOrders" class="btn btn-outline-danger text-dark">
-            Cancelled
-        </a>
+        <!-- Main Content -->
+        <main class="content container my-5">
+            @RenderBody()
+        </main>
 
-        <a class="btn btn-outline-danger" href="/Logout/Index">Logout</a>
-        @{ int count = 0;
-            if (Session["cart"] != null)
-            {
-                var cart = (List<EcommerceWeb.DTO.ProductDTO>)Session["cart"];
-                count = cart.Count;
-            }
-        }
-        <a class="btn btn-outline-primary" href="/order/cart">Cart(@count)</a>
-    </nav>
-    
-    <div class="container body-content">
-
-        @RenderBody()
-        
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row text-center text-md-left">
+                    <div class="col-md-4 mb-3">
+                        <h5>About E-Shop</h5>
+                        <p>Your one-stop online shop for all your daily needs. Fast delivery and excellent customer support.</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h5>Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="/Order/Index">Home</a></li>
+                            <li><a href="/Order/ViewPlacedOrders">Placed Orders</a></li>
+                            <li><a href="/Order/InProgress">In Progress</a></li>
+                            <li><a href="/Customer/ReceivedOrders">Received Orders</a></li>
+                            <li><a href="/Order/CancelledOrders">Cancelled Orders</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h5>Contact Us</h5>
+                        <p>Email: support@eshop.com</p>
+                        <p>Phone: +880 1234 567890</p>
+                        <p>Address: Dhaka, Bangladesh</p>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    &copy; @DateTime.Now.Year E-Shop. All Rights Reserved.
+                </div>
+            </div>
+        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-
 </body>
 </html>

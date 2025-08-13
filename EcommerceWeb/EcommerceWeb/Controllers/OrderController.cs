@@ -235,7 +235,7 @@ namespace EcommerceWeb.Controllers
 
         [Logged]
         [CustomerLogged]
-        public ActionResult CencelledOrders()
+        public ActionResult CancelledOrders()
         {
             var orderDb = (from o in db.Orders
                            where o.StatusId == 5 // 5 = cancelled by Admin

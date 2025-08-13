@@ -3,44 +3,159 @@
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>_DelivaryLayout</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Delivery Panel - E-Shop</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f3f5;
+            color: #212529;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content {
+            flex: 1;
+            padding-top: 160px; /* Offset for fixed header + nav */
+        }
+
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header {
+            background: linear-gradient(to right, #20c997, #0dcaf0);
+            color: white;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.8rem;
+            color: white !important;
+        }
+
+        .welcome-msg span {
+            color: #ffc107;
+        }
+
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav .btn {
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav .btn:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            margin-top: auto;
+        }
+
+        footer h5 {
+            font-weight: bold;
+        }
+
+        footer a {
+            color: #adb5bd;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+    </style>
 </head>
 <body>
-    <div class="text-center mt-5">
-        @if (Session["User"] != null)
-        {
-            var user = (EcommerceWeb.Ef.User)Session["User"];
-            <h3>Welcome <span class="text-info">@user.Username</span></h3>
-        }
-    </div>
-    <nav class="d-flex justify-content-center gap-4 mt-5">
+    <div class="wrapper">
+        <!-- Fixed Header + Nav -->
+        <div class="fixed-header">
+            <!-- Header -->
+            <header class="py-3">
+                <div class="container d-flex justify-content-between align-items-center">
+                    <a class="navbar-brand" href="/Delivery/Index">Delivery Man Panel</a>
+                    <div class="welcome-msg">
+                        @if (Session["User"] != null)
+                        {
+                            var user = (EcommerceWeb.Ef.User)Session["User"];
+                            <span class="text-white h3">Welcome, <strong  class="text-primary h2">@user.Username</strong></span>
+                        }
+                    </div>
+                </div>
+            </header>
 
-        <a href="/Delivery/Index" class="btn btn-outline-primary text-dark">
-            Assigned Orders
-        </a>
-        <a href="/Delivery/OnGoingOrders" class="btn btn-outline-danger text-dark">
-            Ongoing Orders
-        </a>
-        <a href="/Delivery/DeliveredOrders" class="btn btn-outline-info text-dark">
-            Delivered Orders
-        </a>
-        <a class="btn btn-outline-danger" href="/Logout/Index">Logout</a>
+            <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+                <div class="container justify-content-center flex-wrap gap-2 py-2">
+                    <a href="/Delivery/Index" class="btn btn-outline-primary text-dark">📦 Assigned Orders</a>
+                    <a href="/Delivery/OnGoingOrders" class="btn btn-outline-danger text-dark">🚚 Ongoing Orders</a>
+                    <a href="/Delivery/DeliveredOrders" class="btn btn-outline-info text-dark">✅ Delivered Orders</a>
+                    <a href="/Logout/Index" class="btn btn-outline-danger">🚪 Logout</a>
+                </div>
+            </nav>
+        </div>
 
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
+        <!-- Main Content -->
+        <main class="content container my-5">
+            @RenderBody()
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row text-center text-md-left">
+                    <div class="col-md-4 mb-3">
+                        <h5>Delivery Panel</h5>
+                        <p>Track and manage your assigned deliveries efficiently with E-Shop's delivery tools.</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h5>Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="/Delivery/Index">Assigned Orders</a></li>
+                            <li><a href="/Delivery/OnGoingOrders">Ongoing Orders</a></li>
+                            <li><a href="/Delivery/DeliveredOrders">Delivered Orders</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h5>Support</h5>
+                        <p>Email: delivery@eshop.com</p>
+                        <p>Phone: +880 1122 334455</p>
+                        <p>Location: Dhaka Dispatch Center</p>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    &copy; @DateTime.Now.Year E-Shop Delivery. All Rights Reserved.
+                </div>
+            </div>
+        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-
 </body>
 </html>
-

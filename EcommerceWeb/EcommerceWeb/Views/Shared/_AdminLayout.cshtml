@@ -1,57 +1,169 @@
-﻿
-@{
-    
+﻿@{
     Layout = null;
-   
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>_AdminLayout</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Panel - E-Shop</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+<style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f3f5;
+            color: #212529;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content {
+            flex: 1;
+            padding-top: 160px; /* Offset for fixed header + nav */
+        }
+
+        /* Fixed Header + Nav */
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header {
+            background: linear-gradient(to right, #6610f2, #0d6efd);
+            color: white;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.8rem;
+            color: white !important;
+        }
+
+        .welcome-msg span {
+            color: #ffc107;
+        }
+
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav .btn {
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            margin-top: auto;
+        }
+
+        footer h5 {
+            font-weight: bold;
+        }
+
+        footer a {
+            color: #adb5bd;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+
+
+</style>
 </head>
 <body>
-    <div class="text-center mt-5">
-        @if (Session["User"] != null)
-        {
-            var user = (EcommerceWeb.Ef.User)Session["User"];
-            <h3>Welcome <span class="text-info">@user.Username</span></h3>
-        }
-    </div>
-    <nav class="d-flex justify-content-center gap-4 mt-5">
+    <div class="wrapper">
+        <!-- Fixed Header + Nav -->
+        <div class="fixed-header">
+            <!-- Header -->
+            <header class="py-3">
+                <div class="container d-flex justify-content-between align-items-center">
+                    <a class="navbar-brand" href="/Admin/Index">Admin Panel</a>
+                    <div class="welcome-msg">
+                        @if (Session["User"] != null)
+                        {
+                            var user = (EcommerceWeb.Ef.User)Session["User"];
+                            <span class="h5">Welcome, <strong>@user.Username</strong></span>
+                        }
+                    </div>
+                </div>
+            </header>
 
-        <a href="/Admin/AddProduct" class="btn btn-outline-primary text-dark">
-            Add Product
-        </a>
-        <a href="/Admin/AllOrder" class="btn btn-outline-info text-dark">
-            All Order
-        </a>
-        <a href="/Admin/index" class="btn btn-outline-warning ">
-            Order Placed
-        </a>
-        <a href="/Admin/Processing" class="btn btn-outline-success">
-            Processing
-        </a>
-        <a href="/Admin/AssignedQueue" class="btn btn-outline-secondary">
-            Assigneed Order
-        </a>
-        <a href="/Admin/Cancelled" class="btn btn-outline-danger">
-            Cancelled
-        </a>
-        <a class="btn btn-outline-danger" href="/Logout/Index">Logout</a>
+            <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+                <div class="container justify-content-center flex-wrap gap-2 py-2">
+                    <a href="/Admin/AddProduct" class="btn btn-outline-primary text-dark">➕ Add Product</a>
+                    <a href="/Admin/AllOrder" class="btn btn-outline-info text-dark">📋 All Orders</a>
+                    <a href="/Admin/Index" class="btn btn-outline-warning text-dark">📦 Order Placed</a>
+                    <a href="/Admin/Processing" class="btn btn-outline-success text-dark">🔄 Processing</a>
+                    <a href="/Admin/AssignedQueue" class="btn btn-outline-secondary text-dark">📤 Assigned Orders</a>
+                    <a href="/Admin/Cancelled" class="btn btn-outline-danger text-dark">❌ Cancelled</a>
+                    <a href="/Logout/Index" class="btn btn-outline-danger">🚪 Logout</a>
+                </div>
+            </nav>
+        </div>
 
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
+        <!-- Main Content -->
+        <main class="content container my-5">
+            @RenderBody()
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row text-center text-md-left">
+                    <div class="col-md-4 mb-3">
+                        <h5>Admin Panel</h5>
+                        <p>Manage products, orders, and delivery efficiently with E-Shop's admin tools.</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h5>Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="/Admin/Index">Dashboard</a></li>
+                            <li><a href="/Admin/AddProduct">Add Product</a></li>
+                            <li><a href="/Admin/AllOrder">All Orders</a></li>
+                            <li><a href="/Admin/Processing">Processing</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h5>Support</h5>
+                        <p>Email: admin@eshop.com</p>
+                        <p>Phone: +880 9876 543210</p>
+                        <p>Location: Dhaka HQ</p>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    &copy; @DateTime.Now.Year E-Shop Admin. All Rights Reserved.
+                </div>
+            </div>
+        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-
 </body>
 </html>
