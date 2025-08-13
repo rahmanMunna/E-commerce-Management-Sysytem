@@ -8,18 +8,32 @@
 @*<h3> Date : <span class="text-bg-info">@Model[0].Date</span> </h3>*@
 <table class="table table-striped">
     <tr class="text-center">
+        <th>Serial No</th>
         <th>Prodcut Name</th>
         <th>Qty</th>
         <th>Ordered Price</th>
         <th>Current Price Price</th>
     </tr>
+    @{
+        int idx = 0;
+        decimal gTotal = 0;
+    }
+
     @foreach (var od in Model)
     {
+        gTotal += od.Price*od.Qty;
+
         <tr class="text-center">
+            <td>@(++idx)</td>
             <td>@od.Product.Name</td>
             <td>@od.Qty</td>
             <td>@od.Price</td>
             <td>@od.Product.Price</td>
         </tr>
+        
     }
+<tr class="bg-danger">    
+    <td colspan="4" class="fw-bold">Grand Total</td>
+    <td class="text-center fw-bold">@gTotal</td>
+</tr>
 </table>

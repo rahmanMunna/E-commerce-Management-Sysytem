@@ -25,7 +25,7 @@ namespace EcommerceWeb.Models
         public string ConfirmPassword { get; set; }
 
         [Required]
-        [RegularExpression(@"^\d{11}$", ErrorMessage = "Phone number must be 11 digits.")]
+        [RegularExpression(@"^01[3456789]\d{11}$", ErrorMessage = "Phone number must be 11 digits.")]
         public string Phone { get; set; }
     }
 }

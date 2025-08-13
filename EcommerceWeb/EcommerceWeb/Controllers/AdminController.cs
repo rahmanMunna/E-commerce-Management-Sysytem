@@ -99,6 +99,7 @@ namespace EcommerceWeb.Controllers
         {
             var placedOrderDb = (from order in db.Orders
                                  where order.StatusId == 5
+                                 || order.StatusId == 1004
                                  select order).ToList();
             var orderDTO = MapperHelper.GetMapper().Map<List<OrderDTO>>(placedOrderDb);
 

@@ -20,18 +20,25 @@
         }
     </div>
 
-    
+
     <nav class="d-flex justify-content-center gap-4 mt-5">
         <a href="/Order/Index" class="btn btn-outline-success">
             Home
         </a>
-        <a href="/Order/ViewPlacesOrder" class="btn btn-outline-danger">
-            View Placed Order
+        <a href="/Order/ViewPlacedOrders" class="btn btn-outline-info text-dark">
+            Placed
+        </a>
+        <a href="/Order/InProgress" class="btn btn-outline-danger">
+            In Progress
         </a>
         <a href="/Customer/RecievedOrders" class="btn btn-outline-info text-dark">
-            Recieved Orders
+            Recieved
+        </a>
+        <a href="/Order/CencelledOrders" class="btn btn-outline-danger text-dark">
+            Cancelled
         </a>
 
+        <a class="btn btn-outline-danger" href="/Logout/Index">Logout</a>
         @{ int count = 0;
             if (Session["cart"] != null)
             {
@@ -39,11 +46,13 @@
                 count = cart.Count;
             }
         }
-        <a href="/order/cart">Cart(@count)</a>
-        <a class="btn btn-outline-danger" href="/Logout/Index">Logout</a>
+        <a class="btn btn-outline-primary" href="/order/cart">Cart(@count)</a>
     </nav>
+    
     <div class="container body-content">
+
         @RenderBody()
+        
     </div>
 
     @Scripts.Render("~/bundles/jquery")

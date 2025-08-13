@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "ViewPlacedOrders";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2 class="text-center mb-4 border bg-warning p-3">Your Places Order</h2>
+@if (TempData["Msg"] != null)
+{
+    <div class="alert @TempData["Class"]" role="alert">
+        @TempData["Msg"]
+    </div>
+}
+
+<table class="table table-bordered table-striped">
+    <tr class="text-center">
+        <th>Order Id</th>
+        <th>Date</th>
+        <th>Number Of Product</th>
+        <th>Grand Total</th>
+        <th>Status</th>
+        <th>Details</th>
+    </tr>
+    @foreach (var order in Model)
+    {
+
+        <tr class="text-center">
+            <td>@order.Id</td>
+            <td>@order.Date</td>
+            <td>@order.NumberofProduct</td>
+            <td>@order.GTotal</td>
+            <td class="text-center @(order.StatusId == 5?"text-bg-danger" : order.StatusId == 2 ?  "text-bg-success" : "text-bg-info")">@order.Status.Name</td>
+            <td class="text-center">
+                <a href="/Order/ViewOrderDetails/@order.Id" class="btn btn-outline-info">See details</a>
+                <a href="/Order/CancelOrderByCustomer/@order.Id" class="btn btn-outline-danger">Cancel</a>
+            </td>
+
+
+
+        </tr>
+    }
+</table>
+

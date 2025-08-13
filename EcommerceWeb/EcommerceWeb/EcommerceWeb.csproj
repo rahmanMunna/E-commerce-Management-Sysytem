@@ -271,7 +271,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\Cart.cshtml" />
-    <Content Include="Views\Order\ViewPlacesOrder.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Order\ViewOrderDetails.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
@@ -288,6 +287,9 @@
     <Content Include="Views\Delivery\DeliveredOrders.cshtml" />
     <Content Include="Views\Customer\RecievedOrders.cshtml" />
     <Content Include="Views\Signup\Index.cshtml" />
+    <Content Include="Views\Order\CencelledOrders.cshtml" />
+    <Content Include="Views\Order\InProgress.cshtml" />
+    <Content Include="Views\Order\ViewPlacedOrders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

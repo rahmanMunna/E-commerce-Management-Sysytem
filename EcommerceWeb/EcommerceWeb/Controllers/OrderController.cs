@@ -72,6 +72,7 @@ namespace EcommerceWeb.Controllers
         public ActionResult PlaceOrder(decimal total,int totalProduct)
         {
             var cart = (List<ProductDTO>)Session["cart"];
+            var user = (User)Session["User"];
 
             if(cart != null)
             {                
@@ -81,7 +82,7 @@ namespace EcommerceWeb.Controllers
                     GTotal = total,
                     StatusId = 1,
                     NumberofProduct = totalProduct,
-                    CustomerId = 1 // default for now
+                    CustomerId = (int)user.CustomerId // default for now
                 };
 
                 db.Orders.Add(order);
@@ -116,11 +117,11 @@ namespace EcommerceWeb.Controllers
 
         [Logged]
         [CustomerLogged]
-        public ActionResult ViewPlacesOrder()
+        public ActionResult ViewPlacedOrders()
         { 
             var ordersDb = (from o in db.Orders
-                           where o.StatusId != 6
-                           select o).ToList();
+                           where o.StatusId == 1 // 1 = Placed
+                            select o).ToList();
             var orderDTO = MapperHelper.GetMapper().Map<List<OrderDTO>>(ordersDb); 
            
             return View(orderDTO);
@@ -208,13 +209,54 @@ namespace EcommerceWeb.Controllers
             var order = db.Orders.Find(id);
             if (order != null)
             {
-                order.StatusId = 5; // 5  = cancelled  
+                order.StatusId = 5; // 5  = cancelled by Admin
                 db.SaveChanges();
                 TempData["Msg"] = "Order has been Cancelled"; 
                 TempData["Class"] = "text-bg-danger";
             }
 
             return RedirectToAction("Index", "Admin");
+        }
+
+        [Logged]
+        [CustomerLogged]
+        public ActionResult CancelOrderByCustomer(int id)
+        {
+            var orderDb = db.Orders.Find(id);
+            if(orderDb != null)
+            {
+                orderDb.StatusId = 1004;
+                db.SaveChanges();
+                TempData["Msg"] = "Order has been Cancelled";
+                TempData["Class"] = "text-bg-danger";
+            }
+            return RedirectToAction("ViewPlacedOrders");
+        }
+
+        [Logged]
+        [CustomerLogged]
+        public ActionResult CencelledOrders()
+        {
+            var orderDb = (from o in db.Orders
+                           where o.StatusId == 5 // 5 = cancelled by Admin
+                           || o.StatusId == 1004 // 1004 = cancelled by customer
+                           select o).ToList();
+            var orderDTO = MapperHelper.GetMapper().Map<List<OrderDTO>>(orderDb);
+            return View(orderDTO);
+        }
+
+
+        [Logged]
+        [CustomerLogged]
+        public ActionResult InProgress()
+        {
+            var orderDb = (from o in db.Orders
+                           where o.StatusId != 6 // 6 = Delivered
+                            && o.StatusId != 5 // 5 = cancelled by Admin
+                            && o.StatusId != 1004 // 1004 = cancelled by customer
+                           select o).ToList();
+            var orderDTO = MapperHelper.GetMapper().Map<List<OrderDTO>>(orderDb);
+            return View(orderDTO);
         }
     }
 }
