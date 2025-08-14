@@ -22,6 +22,7 @@ namespace EcommerceWeb.Helpers
                 cfg.CreateMap<OrderDetail, OrderDetailDTO>().ReverseMap();
                 cfg.CreateMap<Status, StatusDTO>().ReverseMap();
                 cfg.CreateMap<OrderTarcker, OrderTrackerDTO>().ReverseMap();
+                cfg.CreateMap<Category, CategoryDTO>().ReverseMap();
             });
 
             var mapper = new Mapper(config);

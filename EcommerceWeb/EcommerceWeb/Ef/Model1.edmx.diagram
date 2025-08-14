@@ -20,6 +20,8 @@
         <AssociationConnector Association="EcommerceMSModel.FK_OrderTarcker_DeliveryMan" />
         <AssociationConnector Association="EcommerceMSModel.FK_OrderTarcker_Orders" />
         <AssociationConnector Association="EcommerceMSModel.FK_OrderTarcker_Status" />
+        <EntityTypeShape EntityType="EcommerceMSModel.Category" Width="1.5" PointX="5.125" PointY="8.25" />
+        <AssociationConnector Association="EcommerceMSModel.FK_Products_Categories" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

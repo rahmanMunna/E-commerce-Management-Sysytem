@@ -12,22 +12,18 @@ namespace EcommerceWeb.Ef
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public Category()
         {
-            this.OrderDetails = new HashSet<OrderDetail>();
+            this.Products = new HashSet<Product>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Qty { get; set; }
-        public decimal Price { get; set; }
-        public int CategoryId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-        public virtual Category Category { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

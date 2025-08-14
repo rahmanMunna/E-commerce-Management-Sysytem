@@ -33,5 +33,6 @@ namespace EcommerceWeb.Ef
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<DeliveryMan> DeliveryMen { get; set; }
         public virtual DbSet<OrderTarcker> OrderTarckers { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
     }
 }

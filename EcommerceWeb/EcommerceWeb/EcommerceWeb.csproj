@@ -144,14 +144,19 @@
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SignupController.cs" />
+    <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\DeliveryManDTO.cs" />
     <Compile Include="DTO\OrderTrackerDTO.cs" />
+    <Compile Include="DTO\ProductGroupByCategoryDTO.cs" />
     <Compile Include="DTO\StatusDTO.cs" />
     <Compile Include="DTO\CustomerDTO.cs" />
     <Compile Include="DTO\OrderDetailDTO.cs" />
     <Compile Include="DTO\OrderDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="Ef\Category.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Ef\ComplexType1.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

@@ -1,80 +1,151 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "Products";
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 
 <style>
-    .product-card {
-        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-        color: #fff;
-        border-radius: 0.5rem;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 0 4px 10px rgba(37, 117, 252, 0.3);
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+        font-family: 'Segoe UI', sans-serif;
     }
 
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 20px rgba(37, 117, 252, 0.6);
-        }
+    /* Ensure main content fills available space without huge bottom gap */
+    main {
+        flex: 1 0 auto; /* works if your layout uses flex for body/container */
+    }
 
-        .product-card .card-title {
-            color: #f8f9fa;
-            font-weight: 700;
-            font-size: 1.25rem;
-        }
+    /* Category header styling */
+    .category-header {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(90deg, #ff7e5f, #feb47b);
+        color: #fff;
+        padding: 0.8rem 0.5rem;
+        border-radius: 0.5rem;
+        margin: 2rem 0 1rem;
+        text-align: center;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
 
-        .product-card .card-text {
-            color: #d0d6f9;
-            font-weight: 500;
-        }
+    /* Product card styling */
+    .product-card {
+        background-color: #fff;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
 
+    .product-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    }
+
+    .product-card .card-body {
+        padding: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+        font-size: 0.95rem;
+        color: #555;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Price emphasis */
+    .product-price {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #ff4b2b;
+        margin-bottom: 1rem;
+    }
+
+    /* Add to Cart button */
     .btn-gradient {
         background: linear-gradient(45deg, #ff416c, #ff4b2b);
         border: none;
-        color: white;
+        color: #fff;
         font-weight: 600;
-        padding: 0.5rem 1.25rem;
-        transition: background 0.4s ease, transform 0.3s ease;
-        border-radius: 0.375rem;
-        box-shadow: 0 4px 8px rgba(255, 75, 43, 0.3);
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(255,75,43,0.3);
     }
 
-        .btn-gradient:hover {
-            background: linear-gradient(45deg, #ff4b2b, #ff416c);
-            color: #fff;
-            transform: scale(1.05);
-            box-shadow: 0 6px 14px rgba(255, 75, 43, 0.6);
-            text-decoration: none;
-            cursor: pointer;
-        }
+    .btn-gradient:hover {
+        background: linear-gradient(45deg, #ff4b2b, #ff416c);
+        transform: scale(1.05);
+        box-shadow: 0 6px 18px rgba(255,75,43,0.6);
+        cursor: pointer;
+    }
+
+    /* Alert */
+    .alert-success {
+        margin-top: 1rem;
+        font-weight: 500;
+        border-radius: 0.5rem;
+        text-align: center;
+    }
+
+    /* Remove unnecessary bottom margin */
+    .row.g-4 {
+        margin-bottom: 1.5rem !important;
+    }
+
+    
+    }
 </style>
 
-<h2 class="mb-4 text-center border-bottom border-top p-3 bg-warning">Products <small class="text-danger text-sm-center">(@ViewBag.TotalProductCount)</small> </h2>
 @if (TempData["Msg"] != null)
 {
     <div class="alert alert-success" role="alert">
         @TempData["Msg"]
     </div>
 }
+
 <div class="container">
-    <div class="row g-4">
-        @foreach (var item in Model)
-        {
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="card h-100 product-card">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">@item.Name</h5>
-                        <p class="card-text mb-2"><strong>Quantity:</strong> @item.Qty</p>
-                        <p class="card-text mb-4"><strong>Price:</strong> Tk @item.Price.ToString("F2")</p>
-                        <a href="/Order/AddtoCart/@item.Id" class="btn btn-gradient mt-auto align-self-start">
-                            Add to Cart
-                        </a>
+    @foreach (var productGroupByCategory in Model)
+    {
+        <!-- Category Header -->
+        <div class="category-header">
+            @productGroupByCategory.CategoryName
+        </div>
+
+        <div class="row g-4">
+            @foreach (var product in productGroupByCategory.Products)
+            {
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card product-card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">@product.Name</h5>
+                            <p class="card-text"><strong>Qty:</strong> @product.Qty</p>
+                            <p class="product-price">Tk @product.Price.ToString("F2")</p>
+                            <a href="/Order/AddtoCart/@product.Id" class="btn btn-gradient mt-auto">
+                                Add to Cart
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        }
-    </div>
+            }
+        </div>
+    }
 </div>
-
-

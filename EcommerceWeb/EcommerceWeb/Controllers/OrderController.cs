@@ -21,13 +21,24 @@ namespace EcommerceWeb.Controllers
         [CustomerLogged]
         public ActionResult Index()
         {
-            var p = db.Products.ToList();
+            var productDb = db.Products.ToList();
             
-            var product = MapperHelper.GetMapper().Map<List<ProductDTO>>(p);
+            var productDTO = MapperHelper.GetMapper().Map<List<ProductDTO>>(productDb);
 
-            ViewBag.TotalProductCount = product.Count; 
-            
-            return View(product);
+            ViewBag.TotalProductCount = productDTO.Count;
+
+
+            // Grouping Products by Category
+            var productGroupByCategory = (from p in productDTO
+                                          group p by p.Category.Name into g
+                                          select new ProductGroupByCategoryDTO
+                                          {
+                                              CategoryName = g.Key,
+                                              Products = g.ToList()
+                                          }).ToList();
+
+
+            return View(productGroupByCategory);
         }
 
         [Logged]

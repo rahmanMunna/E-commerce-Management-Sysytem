@@ -24,6 +24,7 @@
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="EcommerceMSModel.Product">
         <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Qty" ColumnName="Qty" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -86,6 +87,14 @@
           <ScalarProperty Name="AssignedTime" ColumnName="AssignedTime" />
           <ScalarProperty Name="DeliveryManId" ColumnName="DeliveryManId" />
           <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="EcommerceMSModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

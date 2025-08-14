@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EcommerceWeb.Ef;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -21,5 +22,8 @@ namespace EcommerceWeb.DTO
         [Required]
         //[RegularExpression(@"^\d+(\.\d+)?$", ErrorMessage = "Qty must be a valid number")]
         public decimal Price { get; set; }
+
+        public int CategoryId { get; set; }
+        public virtual CategoryDTO Category { get; set; }
     }
 }
