@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "AddProduct";
+    ViewBag.Title = "Update";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -20,6 +20,7 @@
             box-shadow: 0 12px 30px rgba(37, 117, 252, 0.8);
             transform: translateY(-8px);
         }
+
     #btn {
         background: linear-gradient(45deg, #ff416c, #ff4b2b);
         border: none;
@@ -37,31 +38,31 @@
             box-shadow: 0 8px 20px rgba(255, 75, 43, 0.6);
             transform: scale(1.05);
         }
- 
 </style>
 
 <div class="d-flex justify-content-center  p-5">
     <form method="post">
-        <h2 class="text-center mb-4">Add Product</h2>
+        <h2 class="text-center mb-4">Update Product</h2>
 
         <div class="mb-3">
             <label for="Name" class="form-label">Product Name</label>
-            <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter product name" required />
+            <input value="@Model.Name" type="text" class="form-control" id="Name" name="Name" placeholder="Enter product name"  />
             <span class="text-danger alert-danger">@Html.ValidationMessage("Name")</span>
         </div>
 
         <div class="mb-3">
             <label for="Qty" class="form-label">Quantity</label>
-            <input type="number" class="form-control" id="Qty" name="Qty" placeholder="Enter quantity" min="0" required />
+            <input value="@Model.Qty" type="number" class="form-control" id="Qty" name="Qty" placeholder="Enter quantity" min="0"  />
             <span class="text-danger alert-danger">@Html.ValidationMessage("Qty")</span>
         </div>
 
         <div class="mb-3">
             <label for="Price" class="form-label">Price</label>
-            <input type="text" step="0.01" class="form-control" id="Price" name="Price" placeholder="Enter price" min="0" required />
+            <input value="@Model.Price" type="text" step="0.01" class="form-control" id="Price" name="Price" placeholder="Enter price" min="0"  />
             <span class="text-danger alert-danger">@Html.ValidationMessage("Price")</span>
         </div>
 
-        <input id="btn" type="submit" value="Add" class="btn btn-danger w-100">
+        <input id="btn" type="submit" value="Update" class="btn btn-danger w-100">
     </form>
 </div>
+

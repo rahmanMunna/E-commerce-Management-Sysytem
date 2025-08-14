@@ -30,7 +30,7 @@ else
                     <td>@(++idx)</td>
                     <td>@orderTrackerDb.Order.Id</td>
                     <td>@orderTrackerDb.Order.Date.ToString("dd MMM yyyy")</td>
-                    <td>@orderTrackerDb.DeliveredTime?.ToString("dd MMM yyyy")</td>
+                    <td>@orderTrackerDb.DeliveredTime.ToString("dd MMM yyyy")</td>
                     <td>@orderTrackerDb.DeliveryMan.Name</td>
                     <td>@orderTrackerDb.Status.Name</td>
                 </tr>

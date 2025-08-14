@@ -29,6 +29,9 @@ namespace EcommerceWeb.Controllers
 
             return View(orderDTO);
         }
+
+        [Logged]
+        [AdminLogged]
         public ActionResult AllOrder()
         {
             var placedOrderDb = db.Orders.ToList();
@@ -136,8 +139,9 @@ namespace EcommerceWeb.Controllers
             }
 
             db.SaveChanges();
-            TempData["Msg"] = prd.Name+" added successfully"; 
-            return RedirectToAction("Index");
+            TempData["Msg"] = prd.Name+" added successfully";
+            TempData["Class"] = "alert alert-success";
+            return RedirectToAction("AllProduct","Product");
         }
 
         [Logged]

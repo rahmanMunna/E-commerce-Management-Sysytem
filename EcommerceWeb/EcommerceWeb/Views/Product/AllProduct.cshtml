@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "AllProdcut";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center bg-warning p-3">Manage Product</h2>
+@if (TempData["Msg"] != null)
+{
+    <h3 class="@TempData["Class"] p-3">@TempData["Msg"]</h3>
+}
+<table class="table table-bordered">
+    <tr class="text-center">
+        <th>Seiral</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Available Qty</th>
+        <th>Price</th>
+        <th>Action</th>
+    </tr>
+    @{ 
+        int idx = 0;
+    }
+
+    @foreach(var product in Model)
+    {
+        <tr class="text-center">
+            <td>@(++idx)</td>
+            <td>@product.Id</td>
+            <td>@product.Name</td>
+            <td>@product.Qty</td>
+            <td>@product.Price</td>
+            <td>
+                <a class="btn btn-outline-success " href="/Product/Update/@product.Id">
+                    Update
+                </a>
+            </td>
+        </tr>
+    }
+    
+</table>
+

@@ -3,36 +3,64 @@
   "WorkspaceRootPath": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\views\\shared\\_deliverylayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\shared\\_deliverylayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\dto\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\dto\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\views\\admin\\addproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\admin\\addproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\views\\product\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\product\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\views\\signup\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\signup\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\views\\product\\allproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\product\\allproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\views\\customer\\receivedorders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\customer\\receivedorders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\views\\shared\\_customerlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\shared\\_customerlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\web development project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\views\\order\\cancelledorders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\order\\cancelledorders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\helpers\\mapperhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\helpers\\mapperhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\views\\customer\\receivedorders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\customer\\receivedorders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\views\\shared\\_deliverylayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\shared\\_deliverylayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\views\\shared\\_customerlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\shared\\_customerlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\views\\order\\cancelledorders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\order\\cancelledorders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,59 +82,164 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_DeliveryLayout.cshtml",
-              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Shared\\_DeliveryLayout.cshtml",
-              "RelativeDocumentMoniker": "EcommerceWeb\\Views\\Shared\\_DeliveryLayout.cshtml",
-              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Shared\\_DeliveryLayout.cshtml",
-              "RelativeToolTip": "EcommerceWeb\\Views\\Shared\\_DeliveryLayout.cshtml",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAAAGgAAAAzAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "AddProduct.cshtml",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Admin\\AddProduct.cshtml",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Views\\Admin\\AddProduct.cshtml",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Admin\\AddProduct.cshtml",
+              "RelativeToolTip": "EcommerceWeb\\Views\\Admin\\AddProduct.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADEAAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-13T10:13:15.721Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "_AdminLayout.cshtml",
-              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Shared\\_AdminLayout.cshtml",
-              "RelativeDocumentMoniker": "EcommerceWeb\\Views\\Shared\\_AdminLayout.cshtml",
-              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Shared\\_AdminLayout.cshtml",
-              "RelativeToolTip": "EcommerceWeb\\Views\\Shared\\_AdminLayout.cshtml",
-              "ViewState": "AgIAAFMAAAAAAAAAAAAwwFsAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-13T10:07:14.034Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-14T16:30:58.977Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ReceivedOrders.cshtml",
-              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Customer\\ReceivedOrders.cshtml",
-              "RelativeDocumentMoniker": "EcommerceWeb\\Views\\Customer\\ReceivedOrders.cshtml",
-              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Customer\\ReceivedOrders.cshtml",
-              "RelativeToolTip": "EcommerceWeb\\Views\\Customer\\ReceivedOrders.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-13T10:04:24.778Z",
-              "EditorCaption": ""
+              "Title": "ProductDTO.cs",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\DTO\\ProductDTO.cs",
+              "RelativeDocumentMoniker": "EcommerceWeb\\DTO\\ProductDTO.cs",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\DTO\\ProductDTO.cs",
+              "RelativeToolTip": "EcommerceWeb\\DTO\\ProductDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T16:07:25.682Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "CustomerController.cs",
-              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\CustomerController.cs",
-              "RelativeDocumentMoniker": "EcommerceWeb\\Controllers\\CustomerController.cs",
-              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\CustomerController.cs",
-              "RelativeToolTip": "EcommerceWeb\\Controllers\\CustomerController.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwCEAAAAqAAAAAAAAAA==",
+              "Title": "Update.cshtml",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Product\\Update.cshtml",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Views\\Product\\Update.cshtml",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Product\\Update.cshtml",
+              "RelativeToolTip": "EcommerceWeb\\Views\\Product\\Update.cshtml",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAuwEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-14T15:59:34.21Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Controllers\\AdminController.cs",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "EcommerceWeb\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAUwGMAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T09:36:40.606Z",
+              "WhenOpened": "2025-08-14T15:51:56.614Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MapperHelper.cs",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Helpers\\MapperHelper.cs",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Helpers\\MapperHelper.cs",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Helpers\\MapperHelper.cs",
+              "RelativeToolTip": "EcommerceWeb\\Helpers\\MapperHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T15:46:53.795Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AllProduct.cshtml",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Product\\AllProduct.cshtml",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Views\\Product\\AllProduct.cshtml",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Product\\AllProduct.cshtml",
+              "RelativeToolTip": "EcommerceWeb\\Views\\Product\\AllProduct.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-14T15:42:28.673Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Controllers\\ProductController.cs",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "EcommerceWeb\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwBcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T15:41:42.897Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Signup\\Index.cshtml",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Views\\Signup\\Index.cshtml",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Signup\\Index.cshtml",
+              "RelativeToolTip": "EcommerceWeb\\Views\\Signup\\Index.cshtml",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAAAFUAAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-14T06:52:19.167Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_DeliveryLayout.cshtml",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Shared\\_DeliveryLayout.cshtml",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Views\\Shared\\_DeliveryLayout.cshtml",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Shared\\_DeliveryLayout.cshtml",
+              "RelativeToolTip": "EcommerceWeb\\Views\\Shared\\_DeliveryLayout.cshtml",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAAGgAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-13T10:13:15.721Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "EcommerceWeb\\Views\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHYAAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-13T10:07:14.034Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ReceivedOrders.cshtml",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Customer\\ReceivedOrders.cshtml",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Views\\Customer\\ReceivedOrders.cshtml",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Customer\\ReceivedOrders.cshtml",
+              "RelativeToolTip": "EcommerceWeb\\Views\\Customer\\ReceivedOrders.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACIAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-13T10:04:24.778Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CustomerController.cs",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\CustomerController.cs",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Controllers\\CustomerController.cs",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\CustomerController.cs",
+              "RelativeToolTip": "EcommerceWeb\\Controllers\\CustomerController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABoAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T09:36:40.606Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Controllers\\OrderController.cs",
+              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "EcommerceWeb\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAIwO0AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T08:11:08.594Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "CancelledOrders.cshtml",
               "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Order\\CancelledOrders.cshtml",
               "RelativeDocumentMoniker": "EcommerceWeb\\Views\\Order\\CancelledOrders.cshtml",
@@ -114,12 +247,11 @@
               "RelativeToolTip": "EcommerceWeb\\Views\\Order\\CancelledOrders.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-13T09:36:01.058Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T09:36:01.058Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 13,
               "Title": "_CustomerLayout.cshtml",
               "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Shared\\_CustomerLayout.cshtml",
               "RelativeDocumentMoniker": "EcommerceWeb\\Views\\Shared\\_CustomerLayout.cshtml",
@@ -127,34 +259,7 @@
               "RelativeToolTip": "EcommerceWeb\\Views\\Shared\\_CustomerLayout.cshtml",
               "ViewState": "AgIAAF8AAAAAAAAAAAAwwHgAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-13T09:19:41.448Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Order\\Index.cshtml",
-              "RelativeDocumentMoniker": "EcommerceWeb\\Views\\Order\\Index.cshtml",
-              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Order\\Index.cshtml",
-              "RelativeToolTip": "EcommerceWeb\\Views\\Order\\Index.cshtml",
-              "ViewState": "AgIAADIAAAAAAAAAAAAkwDYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-13T08:57:00.628Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "OrderController.cs",
-              "DocumentMoniker": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\OrderController.cs",
-              "RelativeDocumentMoniker": "EcommerceWeb\\Controllers\\OrderController.cs",
-              "ToolTip": "E:\\Web Development Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\OrderController.cs",
-              "RelativeToolTip": "EcommerceWeb\\Controllers\\OrderController.cs",
-              "ViewState": "AgIAAOEAAAAAAAAAAAAYwO0AAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T08:11:08.594Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T09:19:41.448Z"
             }
           ]
         }

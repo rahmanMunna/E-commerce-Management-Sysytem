@@ -142,6 +142,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LogoutController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SignupController.cs" />
     <Compile Include="DTO\DeliveryManDTO.cs" />
     <Compile Include="DTO\OrderTrackerDTO.cs" />
@@ -290,6 +291,8 @@
     <Content Include="Views\Order\ViewPlacedOrders.cshtml" />
     <Content Include="Views\Order\CancelledOrders.cshtml" />
     <Content Include="Views\Customer\ReceivedOrders.cshtml" />
+    <Content Include="Views\Product\AllProduct.cshtml" />
+    <Content Include="Views\Product\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
