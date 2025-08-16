@@ -13,10 +13,10 @@ namespace EcommerceWeb.Ef
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EcommerceMSEntities : DbContext
+    public partial class EcommerceMSEntities3 : DbContext
     {
-        public EcommerceMSEntities()
-            : base("name=EcommerceMSEntities")
+        public EcommerceMSEntities3()
+            : base("name=EcommerceMSEntities3")
         {
         }
     
@@ -25,14 +25,14 @@ namespace EcommerceWeb.Ef
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
-        public virtual DbSet<Status> Status { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<DeliveryMan> DeliveryMen { get; set; }
-        public virtual DbSet<OrderTarcker> OrderTarckers { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<DeliveryMan> DeliveryMen { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderTarcker> OrderTarckers { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Status> Status { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

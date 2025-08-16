@@ -14,7 +14,7 @@ namespace EcommerceWeb.Controllers
 {
     public class OrderController : Controller
     {
-        EcommerceMSEntities db =  new EcommerceMSEntities();
+        EcommerceMSEntities3 db = new EcommerceMSEntities3();
 
         // GET: Order
         [Logged]

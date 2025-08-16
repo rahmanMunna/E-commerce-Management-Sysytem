@@ -15,7 +15,7 @@ namespace EcommerceWeb.Controllers
 {
     public class SignupController : Controller
     {
-        EcommerceMSEntities db = new EcommerceMSEntities();
+        EcommerceMSEntities3 db = new EcommerceMSEntities3();
 
         
         // GET: Signup

@@ -1,5 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="EcommerceMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Products_Categories" FromRole="Categories" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Customers" FromRole="Customers" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="DeliveryMan">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="OrderTarckers" Relationship="Self.FK_OrderTarcker_DeliveryMan" FromRole="DeliveryMan" ToRole="OrderTarcker" />
+  </EntityType>
   <EntityType Name="OrderDetail">
     <Key>
       <PropertyRef Name="Id" />
@@ -7,173 +35,25 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="OrderId" Type="Int32" Nullable="false" />
     <Property Name="ProductId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Product" Relationship="EcommerceMSModel.FK_OrderDetails_Products" FromRole="OrderDetail" ToRole="Product" />
     <Property Name="Qty" Type="Int32" Nullable="false" />
-    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <NavigationProperty Name="Order" Relationship="EcommerceMSModel.FK_OrderDetails_Orders" FromRole="OrderDetail" ToRole="Order" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_OrderDetails_Orders" FromRole="OrderDetails" ToRole="Orders" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_OrderDetails_Products" FromRole="OrderDetails" ToRole="Products" />
   </EntityType>
-  <EntityType Name="Status">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Value" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Orders" Relationship="EcommerceMSModel.FK_Orders_Status" FromRole="Status" ToRole="Order" />
-    <NavigationProperty Name="OrderTarckers" Relationship="EcommerceMSModel.FK_OrderTarcker_Status" FromRole="Status" ToRole="OrderTarcker" />
-  </EntityType>
-  <EntityContainer Name="EcommerceMSEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
-    <EntitySet Name="Status" EntityType="Self.Status" />
-    <EntitySet Name="Products" EntityType="EcommerceMSModel.Product" />
-    <AssociationSet Name="FK_OrderDetails_Products" Association="EcommerceMSModel.FK_OrderDetails_Products">
-      <End Role="Product" EntitySet="Products" />
-      <End Role="OrderDetail" EntitySet="OrderDetails" />
-    </AssociationSet>
-    <EntitySet Name="Orders" EntityType="EcommerceMSModel.Order" />
-    <AssociationSet Name="FK_OrderDetails_Orders" Association="EcommerceMSModel.FK_OrderDetails_Orders">
-      <End Role="Order" EntitySet="Orders" />
-      <End Role="OrderDetail" EntitySet="OrderDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Orders_Status" Association="EcommerceMSModel.FK_Orders_Status">
-      <End Role="Status" EntitySet="Status" />
-      <End Role="Order" EntitySet="Orders" />
-    </AssociationSet>
-    <EntitySet Name="Customers" EntityType="EcommerceMSModel.Customer" />
-    <AssociationSet Name="FK_Orders_Customers" Association="EcommerceMSModel.FK_Orders_Customers">
-      <End Role="Customer" EntitySet="Customers" />
-      <End Role="Order" EntitySet="Orders" />
-    </AssociationSet>
-    <EntitySet Name="Users" EntityType="EcommerceMSModel.User" />
-    <EntitySet Name="DeliveryMen" EntityType="EcommerceMSModel.DeliveryMan" />
-    <EntitySet Name="OrderTarckers" EntityType="EcommerceMSModel.OrderTarcker" />
-    <AssociationSet Name="FK_OrderTarcker_DeliveryMan" Association="EcommerceMSModel.FK_OrderTarcker_DeliveryMan">
-      <End Role="DeliveryMan" EntitySet="DeliveryMen" />
-      <End Role="OrderTarcker" EntitySet="OrderTarckers" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderTarcker_Orders" Association="EcommerceMSModel.FK_OrderTarcker_Orders">
-      <End Role="Order" EntitySet="Orders" />
-      <End Role="OrderTarcker" EntitySet="OrderTarckers" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderTarcker_Status" Association="EcommerceMSModel.FK_OrderTarcker_Status">
-      <End Role="Status" EntitySet="Status" />
-      <End Role="OrderTarcker" EntitySet="OrderTarckers" />
-    </AssociationSet>
-    <EntitySet Name="Categories" EntityType="EcommerceMSModel.Category" />
-    <AssociationSet Name="FK_Products_Categories" Association="EcommerceMSModel.FK_Products_Categories">
-      <End Role="Category" EntitySet="Categories" />
-      <End Role="Product" EntitySet="Products" />
-    </AssociationSet>
-  </EntityContainer>
-  <ComplexType Name="ComplexType1">
-    <Property Type="GeographyLineString" Name="Name" Nullable="false" />
-  </ComplexType>
-  <EntityType Name="Product">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Qty" Type="Int32" Nullable="false" />
-    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <NavigationProperty Name="OrderDetails" Relationship="EcommerceMSModel.FK_OrderDetails_Products" FromRole="Product" ToRole="OrderDetail" />
-    <Property Name="CategoryId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Category" Relationship="EcommerceMSModel.FK_Products_Categories" FromRole="Product" ToRole="Category" />
-  </EntityType>
-  <Association Name="FK_OrderDetails_Products">
-    <End Type="EcommerceMSModel.Product" Role="Product" Multiplicity="1" />
-    <End Type="EcommerceMSModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="OrderDetail">
-        <PropertyRef Name="ProductId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="Order">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="GTotal" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="GTotal" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="StatusId" Type="Int32" Nullable="false" />
     <Property Name="NumberofProduct" Type="Int32" Nullable="false" />
     <Property Name="CustomerId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="OrderDetails" Relationship="EcommerceMSModel.FK_OrderDetails_Orders" FromRole="Order" ToRole="OrderDetail" />
-    <NavigationProperty Name="Status" Relationship="EcommerceMSModel.FK_Orders_Status" FromRole="Order" ToRole="Status" />
-    <NavigationProperty Name="Customer" Relationship="EcommerceMSModel.FK_Orders_Customers" FromRole="Order" ToRole="Customer" />
-    <NavigationProperty Name="OrderTarckers" Relationship="EcommerceMSModel.FK_OrderTarcker_Orders" FromRole="Order" ToRole="OrderTarcker" />
-  </EntityType>
-  <Association Name="FK_OrderDetails_Orders">
-    <End Type="EcommerceMSModel.Order" Role="Order" Multiplicity="1" />
-    <End Type="EcommerceMSModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Order">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="OrderDetail">
-        <PropertyRef Name="OrderId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Orders_Status">
-    <End Type="EcommerceMSModel.Status" Role="Status" Multiplicity="1" />
-    <End Type="EcommerceMSModel.Order" Role="Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Status">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="StatusId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="Customer">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Orders" Relationship="EcommerceMSModel.FK_Orders_Customers" FromRole="Customer" ToRole="Order" />
-  </EntityType>
-  <Association Name="FK_Orders_Customers">
-    <End Type="EcommerceMSModel.Customer" Role="Customer" Multiplicity="1" />
-    <End Type="EcommerceMSModel.Order" Role="Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Customer">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="CustomerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="User">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Role" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="CustomerId" Type="Int32" />
-    <Property Name="DeliveryManId" Type="Int32" />
-  </EntityType>
-  <EntityType Name="DeliveryMan">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="OrderTarckers" Relationship="EcommerceMSModel.FK_OrderTarcker_DeliveryMan" FromRole="DeliveryMan" ToRole="OrderTarcker" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Orders_Customers" FromRole="Orders" ToRole="Customers" />
+    <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Orders" FromRole="Orders" ToRole="OrderDetails" />
+    <NavigationProperty Name="Status" Relationship="Self.FK_Orders_Status" FromRole="Orders" ToRole="Status" />
+    <NavigationProperty Name="OrderTarckers" Relationship="Self.FK_OrderTarcker_Orders" FromRole="Orders" ToRole="OrderTarcker" />
   </EntityType>
   <EntityType Name="OrderTarcker">
     <Key>
@@ -186,14 +66,72 @@
     <Property Name="RecievedTime" Type="DateTime" Precision="3" />
     <Property Name="DeliveredTime" Type="DateTime" Precision="3" />
     <Property Name="StatusId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="DeliveryMan" Relationship="EcommerceMSModel.FK_OrderTarcker_DeliveryMan" FromRole="OrderTarcker" ToRole="DeliveryMan" />
-    <NavigationProperty Name="Order" Relationship="EcommerceMSModel.FK_OrderTarcker_Orders" FromRole="OrderTarcker" ToRole="Order" />
-    <NavigationProperty Name="Status" Relationship="EcommerceMSModel.FK_OrderTarcker_Status" FromRole="OrderTarcker" ToRole="Status" />
     <Property Name="RejectedByDeliveryMan" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DeliveryMan" Relationship="Self.FK_OrderTarcker_DeliveryMan" FromRole="OrderTarcker" ToRole="DeliveryMan" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_OrderTarcker_Orders" FromRole="OrderTarcker" ToRole="Orders" />
+    <NavigationProperty Name="Status" Relationship="Self.FK_OrderTarcker_Status" FromRole="OrderTarcker" ToRole="Status" />
   </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Qty" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
+    <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Products" FromRole="Products" ToRole="OrderDetails" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Value" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Status" FromRole="Status" ToRole="Orders" />
+    <NavigationProperty Name="OrderTarckers" Relationship="Self.FK_OrderTarcker_Status" FromRole="Status" ToRole="OrderTarcker" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="DeliveryManId" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_Products_Categories">
+    <End Role="Categories" Type="Self.Category" Multiplicity="1" />
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Customers">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_OrderTarcker_DeliveryMan">
-    <End Type="EcommerceMSModel.DeliveryMan" Role="DeliveryMan" Multiplicity="1" />
-    <End Type="EcommerceMSModel.OrderTarcker" Role="OrderTarcker" Multiplicity="*" />
+    <End Role="DeliveryMan" Type="Self.DeliveryMan" Multiplicity="1" />
+    <End Role="OrderTarcker" Type="Self.OrderTarcker" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="DeliveryMan">
         <PropertyRef Name="Id" />
@@ -203,11 +141,47 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_OrderTarcker_Orders">
-    <End Type="EcommerceMSModel.Order" Role="Order" Multiplicity="1" />
-    <End Type="EcommerceMSModel.OrderTarcker" Role="OrderTarcker" Multiplicity="*" />
+  <Association Name="FK_OrderDetails_Orders">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Order">
+      <Principal Role="Orders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetails_Products">
+    <End Role="Products" Type="Self.Product" Multiplicity="1" />
+    <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderTarcker_Orders">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="OrderTarcker" Type="Self.OrderTarcker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="OrderTarcker">
@@ -216,8 +190,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OrderTarcker_Status">
-    <End Type="EcommerceMSModel.Status" Role="Status" Multiplicity="1" />
-    <End Type="EcommerceMSModel.OrderTarcker" Role="OrderTarcker" Multiplicity="*" />
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="OrderTarcker" Type="Self.OrderTarcker" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Status">
         <PropertyRef Name="Id" />
@@ -227,24 +201,47 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="Category">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Products" Relationship="EcommerceMSModel.FK_Products_Categories" FromRole="Category" ToRole="Product" />
-  </EntityType>
-  <Association Name="FK_Products_Categories">
-    <End Type="EcommerceMSModel.Category" Role="Category" Multiplicity="1" />
-    <End Type="EcommerceMSModel.Product" Role="Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Category">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Product">
-        <PropertyRef Name="CategoryId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
+  <EntityContainer Name="EcommerceMSEntities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="DeliveryMen" EntityType="Self.DeliveryMan" />
+    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="OrderTarckers" EntityType="Self.OrderTarcker" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Status" EntityType="Self.Status" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Customers" Association="Self.FK_Orders_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderTarcker_DeliveryMan" Association="Self.FK_OrderTarcker_DeliveryMan">
+      <End Role="DeliveryMan" EntitySet="DeliveryMen" />
+      <End Role="OrderTarcker" EntitySet="OrderTarckers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetails_Orders" Association="Self.FK_OrderDetails_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetails_Products" Association="Self.FK_OrderDetails_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Status" Association="Self.FK_Orders_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderTarcker_Orders" Association="Self.FK_OrderTarcker_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderTarcker" EntitySet="OrderTarckers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderTarcker_Status" Association="Self.FK_OrderTarcker_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="OrderTarcker" EntitySet="OrderTarckers" />
+    </AssociationSet>
+  </EntityContainer>
 </Schema>

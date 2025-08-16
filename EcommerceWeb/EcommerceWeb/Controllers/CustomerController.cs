@@ -12,7 +12,7 @@ namespace EcommerceWeb.Controllers
     public class CustomerController : Controller
     {
         // GET: Customer
-        EcommerceMSEntities db = new EcommerceMSEntities();
+        EcommerceMSEntities3 db = new EcommerceMSEntities3();
         
         User GetUser()
         {

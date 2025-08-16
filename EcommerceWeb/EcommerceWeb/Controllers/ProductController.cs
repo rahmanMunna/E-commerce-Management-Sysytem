@@ -13,7 +13,7 @@ namespace EcommerceWeb.Controllers
 {
     public class ProductController : Controller
     {
-        EcommerceMSEntities db = new EcommerceMSEntities();
+        EcommerceMSEntities3 db = new EcommerceMSEntities3();
         // GET: Product
         public ActionResult Index()
         {

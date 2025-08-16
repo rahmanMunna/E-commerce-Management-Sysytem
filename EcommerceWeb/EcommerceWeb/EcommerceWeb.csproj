@@ -157,9 +157,6 @@
     <Compile Include="Ef\Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Ef\ComplexType1.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Ef\Customer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

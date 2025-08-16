@@ -12,7 +12,7 @@ namespace EcommerceWeb.Controllers
 {
     public class DeliveryController : Controller
     {
-        EcommerceMSEntities db = new EcommerceMSEntities();
+        EcommerceMSEntities3 db = new EcommerceMSEntities3();
         
         // GET: Delivery
 
