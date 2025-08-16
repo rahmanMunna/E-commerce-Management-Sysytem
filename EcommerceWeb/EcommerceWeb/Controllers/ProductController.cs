@@ -28,7 +28,16 @@ namespace EcommerceWeb.Controllers
             var productDb = db.Products.ToList();
             var productDTO = MapperHelper.GetMapper().Map<List<ProductDTO>>(productDb);
 
-            return View(productDTO);
+            //group by category
+            var productGroupByCategory = from p in productDTO
+                                         group p by p.Category.Name into g
+                                         select new ProductGroupByCategoryDTO
+                                         {
+                                             CategoryName = g.Key,
+                                             Products = g.ToList()
+                                         };
+
+            return View(productGroupByCategory);
         }
 
         [HttpGet]

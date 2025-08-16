@@ -9,5 +9,6 @@ namespace EcommerceWeb.DTO
     {
         public string CategoryName { get; set; }
         public List<ProductDTO> Products { get; set; }
+
     }
 }

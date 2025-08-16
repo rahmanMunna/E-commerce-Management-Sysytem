@@ -114,32 +114,36 @@ namespace EcommerceWeb.Controllers
         [AdminLogged]
         public ActionResult AddProduct()
         {
-            return View();
+
+            var categoryDb = db.Categories.ToList();    
+            var categoryDTO = MapperHelper.GetMapper().Map<List<CategoryDTO>>(categoryDb);  
+
+            return View(categoryDTO);
         }
 
         [Logged]
         [AdminLogged]
         [HttpPost]
-        public ActionResult AddProduct(ProductDTO prd)
+        public ActionResult AddProduct(ProductDTO productDTO)
         {
             var existingProduct = (from pr in db.Products
-                     where pr.Name == prd.Name
+                     where pr.Name == productDTO.Name
                      select pr).SingleOrDefault();
 
             
 
             if (existingProduct == null)
             {
-                var productDb = MapperHelper.GetMapper().Map<Product>(prd);
+                var productDb = MapperHelper.GetMapper().Map<Product>(productDTO);
                 db.Products.Add(productDb);
             }
             else
             {
-                existingProduct.Qty += prd.Qty;
+                existingProduct.Qty += productDTO.Qty;
             }
 
             db.SaveChanges();
-            TempData["Msg"] = prd.Name+" added successfully";
+            TempData["Msg"] = productDTO.Name+" added successfully";
             TempData["Class"] = "alert alert-success";
             return RedirectToAction("AllProduct","Product");
         }

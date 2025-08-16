@@ -45,20 +45,29 @@
         <h2 class="text-center mb-4">Update Product</h2>
 
         <div class="mb-3">
+            <label for="CategoryId" class="form-label fw-bold">Category</label>
+            <select class="form-select" id="CategoryId" name="CategoryId" required>
+                <option disabled  value="">-- Select a Category --</option>
+                <option selected value="@Model.CategoryId">@Model.Category.Name</option>
+            </select>
+            <span class="text-danger">@Html.ValidationMessage("CategoryId")</span>
+        </div>
+
+        <div class="mb-3">
             <label for="Name" class="form-label">Product Name</label>
-            <input value="@Model.Name" type="text" class="form-control" id="Name" name="Name" placeholder="Enter product name"  />
+            <input value="@Model.Name" type="text" class="form-control" id="Name" name="Name" placeholder="Enter product name" />
             <span class="text-danger alert-danger">@Html.ValidationMessage("Name")</span>
         </div>
 
         <div class="mb-3">
             <label for="Qty" class="form-label">Quantity</label>
-            <input value="@Model.Qty" type="number" class="form-control" id="Qty" name="Qty" placeholder="Enter quantity" min="0"  />
+            <input value="@Model.Qty" type="number" class="form-control" id="Qty" name="Qty" placeholder="Enter quantity" min="0" />
             <span class="text-danger alert-danger">@Html.ValidationMessage("Qty")</span>
         </div>
 
         <div class="mb-3">
             <label for="Price" class="form-label">Price</label>
-            <input value="@Model.Price" type="text" step="0.01" class="form-control" id="Price" name="Price" placeholder="Enter price" min="0"  />
+            <input value="@Model.Price" type="text" step="0.01" class="form-control" id="Price" name="Price" placeholder="Enter price" min="0" />
             <span class="text-danger alert-danger">@Html.ValidationMessage("Price")</span>
         </div>
 
