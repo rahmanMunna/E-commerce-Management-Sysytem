@@ -1,8 +1,19 @@
 ﻿
 @{
     ViewBag.Title = "ViewOrderDetails";
-    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
-}
+    var user = (EcommerceWeb.Ef.User)Session["User"] ;
+    if(user.Role == "admin")
+    {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    else if(user.Role == "customer")
+    {
+        Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    }
+
+
+
+    }
 
 <h2 class="text-center mb-3">ViewOrderDetails</h2>
 @*<h3> Date : <span class="text-bg-info">@Model[0].Date</span> </h3>*@

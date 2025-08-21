@@ -1,6 +1,6 @@
 ﻿@{
     Layout = null;
-    
+
 }
 
 <!DOCTYPE html>
@@ -59,7 +59,7 @@
         <h2 class="text-center mb-4">Sign Up</h2>
         <form method="post">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="Name" name="Name" placeholder="Full Name" required>
+                <input type="text"   class="form-control" value="@Model.Name" id="Name" name="Name" placeholder="Full Name" required>
                 <label for="Name">Full Name</label>
                 <span class="text-danger alert-danger">@Html.ValidationMessage("Name")</span>
             </div>

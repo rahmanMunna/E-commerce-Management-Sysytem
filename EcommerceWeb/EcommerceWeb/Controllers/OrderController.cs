@@ -85,7 +85,7 @@ namespace EcommerceWeb.Controllers
             var cart = (List<ProductDTO>)Session["cart"];
             var user = (User)Session["User"];
 
-            if(cart != null)
+            if(cart != null || cart.Count != 0)
             {                
                 var order = new Order
                 {
@@ -143,13 +143,68 @@ namespace EcommerceWeb.Controllers
         public ActionResult Cart()
         {
             var cart = (List<ProductDTO>)Session["cart"];
-
+            
             return View(cart);
+        }
+
+        public ActionResult RemoveFromCart(int id)
+        {
+            var cart = (List<ProductDTO>)Session["cart"];
+            foreach(var c in cart)
+            {
+                if(c.Id == id)
+                {
+                    cart.Remove(c);
+                    TempData["Msg"] = c.Name + " has been Removed from Cart";
+                    break;
+                }
+            }
+
+            return RedirectToAction("Cart");
+
+        }
+
+        [HttpPost]
+        public ActionResult IncreaseCartQty(int id)
+        {
+            var cart = (List<ProductDTO>)Session["cart"];
+            
+            foreach (var c in cart)
+            {
+                if(c.Id == id)
+                {
+                    c.Qty++;
+                    return Json(new { qty = c.Qty,price = c.Price});                 
+                }
+            }
+            return Content("Something Wrong");
+
+            
+            
+        }
+
+        [HttpPost]
+        public ActionResult DecreaseCartQty(int id)
+        {
+            var cart = (List<ProductDTO>)Session["cart"];
+            
+            foreach (var c in cart)
+            {
+                if (c.Id == id && c.Qty != 0)
+                {
+                    c.Qty--;
+                    return Json(new { qty = c.Qty, price = c.Price });
+
+                }
+            }
+            return Content("Something Wrong");
+
         }
 
         //See Order Details
         [Logged]
-        [CustomerLogged]
+        //[CustomerLogged]
+        //[AdminLogged]
         public ActionResult ViewOrderDetails(int id)
         {
             var orderDetailsDb = (from od in db.OrderDetails

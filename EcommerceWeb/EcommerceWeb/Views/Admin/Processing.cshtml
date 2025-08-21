@@ -21,6 +21,7 @@
         <th>Total Product</th>
         <th>Grand Total</th>
         <th>Status</th>
+        <th>Details</th>
         <th>Assigned to</th>
 
     </tr>
@@ -36,6 +37,11 @@
             <td>@order.NumberofProduct</td>
             <td>@order.GTotal</td>
             <td>@order.Status.Name</td>
+            <td>
+                <a href="/Order/ViewOrderDetails/@order.Id" class="btn btn-outline-info">
+                    Show Details
+                </a>
+            </td>
             <td>
                 <form method="post">
                     <select name="DeliveryManId" class="p-2">

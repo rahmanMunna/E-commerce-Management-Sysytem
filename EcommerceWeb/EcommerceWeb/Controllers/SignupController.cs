@@ -23,7 +23,7 @@ namespace EcommerceWeb.Controllers
         public ActionResult Index()
         {
 
-            return View();
+            return View(new RegisterUser());
         }
 
 
@@ -76,7 +76,7 @@ namespace EcommerceWeb.Controllers
                                
                 TempData["Msg"] = "Password and Confirm Password do not match.";
                 TempData["Class"] = "text-danger";
-                return View();
+                return View(newUser);
             }
         }
 

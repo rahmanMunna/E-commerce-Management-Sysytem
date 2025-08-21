@@ -4,56 +4,129 @@
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 
+
+@{
+    if (TempData["Msg"] != null)
+    {
+
+        <p class="alert alert-danger">@TempData["Msg"]</p>
+    }
+}
+
 <h2 class="text-center text-bg-warning">Cart</h2>
-@{ 
+@{
     decimal total = 0;
+    int qty = 0;
 
 }
 
 
-<table class="table table-bordered">
+<table class=" table table-bordered">
     <tr>
+
         <th>Product Name</th>
-        <th>Qty</th>
-        <th>Price</th>
+        <th class="text-center">Qty</th>
+        <th class="text-center">Price</th>
+        <th class="text-center">Remove</th>
     </tr>
     @if (Model != null)
     {
-        
+
         foreach (var item in Model)
-        {
+        {          
             <tr>
+
                 <td>@item.Name</td>
-                <td>@item.Qty</td>
-                <td>@item.Price</td>
+                <td class="text-center">
+                   
+                    <button onclick="decreaseQty(@item.Id)" class="btn btn-danger"> - </button>
+                    <span id="Qty">@item.Qty</span>
+                    <button onclick="increaseQty(@item.Id)" class="btn btn-success"> + </button>
+                    
+                </td>
+                <td class="text-center">@item.Price</td>
+                <td class="text-center">
+                    <a href="/Order/RemoveFromCart/@item.Id" class="btn btn-outline-danger">
+                        Remove
+                    </a>
+                </td>
             </tr>
             {
-                
+
                 total += item.Qty * item.Price;
             }
 
         }
         <tr class="text-bg-danger">
-            <td colspan="2">Grant Total</td>
-            <td class="">
-                @total
+            <td colspan="3">Grant Total</td>
+            <td  class="text-center">
+                <span id="TotalPrice">@total</span>
             </td>
         </tr>
-        
+
     }
 
 </table>
-@{ 
-    if(Model != null)
+@{
+    if (Model != null)
     {
-    <form method="post" action="/Order/PlaceOrder" class="text-end">
-        <input type="hidden" name="total" value="@total" />
-        <input type="hidden" name="totalProduct" value="@Model.Count" />
-        <input type="submit" value="Place Order" class="btn btn-danger" />
-        
-    </form>
+        <form method="post" action="/Order/PlaceOrder" class="text-end">
+            <input type="hidden" name="total" value="@total" />
+            <input type="hidden" name="totalProduct" value="@Model.Count" />
+
+            <input id="BtnPlaceOrder" type="submit"
+                   value="Place Order"
+                   @(total == 0 ? "disabled" : "")
+                   class="btn btn-success" />
+        </form>
     }
 }
+
+<script>
+    
+    function increaseQty(id) {
+        var xhttp = new XMLHttpRequest();     
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {                
+                var { qty, price } = JSON.parse(this.response);
+                document.getElementById("Qty").innerHTML = qty;
+                document.getElementById("TotalPrice").innerText = qty * price;
+                if (qty == 0) {
+                    document.getElementById("BtnPlaceOrder").disabled = true;
+                }
+                else {
+                    document.getElementById("BtnPlaceOrder").disabled = false;
+                }
+                
+            }
+        };
+        xhttp.open("Post", "/Order/IncreaseCartQty/", true);  
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.send(JSON.stringify({ id: id }));
+        
+    }
+
+    function decreaseQty(id) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var { qty, price } = JSON.parse(this.response);
+                document.getElementById("Qty").innerHTML = qty;
+                document.getElementById("TotalPrice").innerText = qty * price;
+                if (qty == 0) {
+                    document.getElementById("BtnPlaceOrder").disabled = true;
+                }
+                else {
+                    document.getElementById("BtnPlaceOrder").disabled = false;
+                }
+                     
+            }
+        };
+        xhttp.open("Post", "/Order/DecreaseCartQty/", true);
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.send(JSON.stringify({ id: id }));
+    }
+</script>
 
 
 

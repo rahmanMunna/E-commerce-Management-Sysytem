@@ -11,9 +11,9 @@
     @TempData["Msg"]
 </div>
 }
-<table class="table text-center">
+<table class="table table-bordered text-center">
     <tr>
-        <th>Serial</th>
+        <th>#</th>
         <th>Order Id</th>
         <th>Order Date</th>
         <th>Customer Name</th>
@@ -35,6 +35,9 @@
             <td>@order.GTotal</td>
             <td>@order.Status.Name</td>
             <td>
+                <a href="/Order/ViewOrderDetails/@order.Id" class="btn btn-outline-info">
+                    Show Details
+                </a>
                 <a href="/Order/ConfirmOrder/@order.Id" class="btn btn-outline-success">
                     Confirm
                 </a>
