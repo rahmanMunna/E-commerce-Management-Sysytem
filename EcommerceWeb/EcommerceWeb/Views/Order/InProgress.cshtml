@@ -1,36 +1,62 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "InProgress";
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 
-<h2 class="text-center mb-4 border bg-warning p-3">In Progress</h2>
+<div class="container mt-4 mb-5">
+    <!-- Gradient Heading -->
+    <div class="p-4 mb-4 text-center text-white rounded shadow"
+         style="background: linear-gradient(90deg, #ffb347, #ffcc33);">
+        <h2 class="fw-bold m-0">
+            <i class="bi bi-hourglass-split"></i> In Progress Orders
+        </h2>
+    </div>
 
-<table class="table table-bordered table-striped">
-    <tr class="text-center">
-        <th>Order Id</th>
-        <th>Date</th>
-        <th>Number Of Product</th>
-        <th>Grand Total</th>
-        <th>Status</th>
-        <th>Details</th>
-    </tr>
-    @foreach (var order in Model)
-    {
-
-        <tr class="text-center">
-            <td>@order.Id</td>
-            <td>@order.Date</td>
-            <td>@order.NumberofProduct</td>
-            <td>@order.GTotal</td>
-            <td>@order.Status.Name</td>
-            <td class="text-center">
-                <a href="/Order/ViewOrderDetails/@order.Id" class="btn btn-outline-info">See details</a>
-            </td>
-
-
-
-        </tr>
-    }
-</table>
-
+    <!-- Orders Table -->
+    <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-body p-4">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle text-center">
+                    <thead style="background: linear-gradient(90deg, #ffd54f, #ffb300); color: #000;">
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Total Products</th>
+                            <th>Grand Total</th>
+                            <th>Status</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var order in Model)
+                        {
+                            <tr>
+                                <td class="fw-semibold text-dark">#@order.Id</td>
+                                <td>@order.Date.ToString("dd-MMM-yyyy")</td>
+                                <td>
+                                    <span class="badge bg-info text-dark fs-6">
+                                        @order.NumberofProduct
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="badge bg-success fs-6">Tk @order.GTotal</span>
+                                </td>
+                                <td>
+                                    <span class="badge bg-warning text-dark">
+                                        @order.Status.Name
+                                    </span>
+                                </td>
+                                <td>
+                                    <a href="/Order/ViewOrderDetails/@order.Id"
+                                       class="btn btn-sm btn-outline-primary shadow-sm">
+                                        <i class="bi bi-eye"></i> View
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -202,6 +202,7 @@
     <Compile Include="Helpers\HashHelper.cs" />
     <Compile Include="Helpers\MapperHelper.cs" />
     <Compile Include="Models\LoginUser.cs" />
+    <Compile Include="Models\PasswordValidationAttribute.cs" />
     <Compile Include="Models\RegisterUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -222,6 +223,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Layout\_Customer.css" />
+    <Content Include="Content\Order\cart.css" />
+    <Content Include="Content\Order\Index.css" />
+    <Content Include="Content\Order\ViewOrderDetails.css" />
+    <Content Include="Content\Order\ViewPlacedOrders.css" />
+    <Content Include="Content\Signup\Index.css" />
     <Content Include="Ef\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -249,6 +256,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
+    <Content Include="Scripts\Order\cart.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
     <Content Include="Scripts\jquery-3.7.0.slim.js" />

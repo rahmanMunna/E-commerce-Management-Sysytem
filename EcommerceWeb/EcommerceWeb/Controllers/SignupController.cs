@@ -30,8 +30,7 @@ namespace EcommerceWeb.Controllers
         [HttpPost]
         public ActionResult Index(RegisterUser newUser)
         {
-
-            if(newUser.Password == newUser.ConfirmPassword)
+            if (ModelState.IsValid)
             {
                 var customerDTO = new Customer
                 {
@@ -68,16 +67,11 @@ namespace EcommerceWeb.Controllers
                 TempData["Msg"] = "Signup successful. Please login to continue.";
                 TempData["Class"] = "text-success";
 
-
                 return RedirectToAction("Index", "Login");
             }
-            else
-            {
-                               
-                TempData["Msg"] = "Password and Confirm Password do not match.";
-                TempData["Class"] = "text-danger";
-                return View(newUser);
-            }
+            return View(newUser);
+
+
         }
 
        

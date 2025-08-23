@@ -1,0 +1,41 @@
+﻿body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    max-width: 400px;
+    width: 100%;
+}
+
+    .signup-card h2 {
+        font-weight: bold;
+        color: #4e73df;
+    }
+
+.form-floating > label {
+    color: #6c757d;
+}
+
+.form-control:focus {
+    border-color: #1cc88a;
+    box-shadow: 0 0 0 0.2rem rgba(28,200,138,0.25);
+}
+
+.btn-gradient {
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+    .btn-gradient:hover {
+        opacity: 0.9;
+    }

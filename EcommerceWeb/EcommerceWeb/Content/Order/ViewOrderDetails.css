@@ -1,0 +1,82 @@
+﻿/* Title */
+.details-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 20px 0;
+    color: #2c3e50;
+}
+
+/* Container */
+.details-container {
+    max-width: 900px;
+    margin: auto;
+    background: #fff;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+    overflow-x: auto;
+}
+
+/* Table */
+.details-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+    .details-table thead {
+        background: #f8f9fa;
+    }
+
+    .details-table th {
+        padding: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        color: #495057;
+        border-bottom: 2px solid #dee2e6;
+        text-align: center;
+        letter-spacing: 0.5px;
+    }
+
+    .details-table td {
+        padding: 14px;
+        border-bottom: 1px solid #e9ecef;
+        text-align: center;
+        vertical-align: middle;
+        transition: background 0.2s ease;
+    }
+
+    .details-table tbody tr:hover {
+        background: #fdfdfd;
+    }
+
+    /* Highlight product name */
+    .details-table td:first-child {
+        font-weight: 600;
+        color: #212529;
+    }
+
+/* Price styling */
+.price-badge {
+    display: inline-block;
+    background: #e9f5ff;
+    color: #0d6efd;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+}
+
+/* Grand total row */
+.total-row {
+    background: #f8d7da;
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+    .total-row td {
+        padding: 16px;
+    }

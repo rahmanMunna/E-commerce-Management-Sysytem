@@ -1,61 +1,85 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Processing";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<style>
-</style>
 
+<div class="container mt-4 mb-5">
+    <h2 class="text-center fw-bold text-primary mb-4">
+        <i class="bi bi-hourglass-split"></i> In Processing Orders
+    </h2>
 
-<h2 class="text-center mb-4 border border-primary p-4">In Processing</h2>
-@if (TempData["Msg"] != null)
-{
-    <p class="text-center">@TempData["Msg"]</p>
-}
-<table class="table text-center">
-    <tr>
-        <th>Serial</th>
-        <th>Order Id</th>
-        <th>Order Date</th>
-        <th>Customer Name</th>
-        <th>Total Product</th>
-        <th>Grand Total</th>
-        <th>Status</th>
-        <th>Details</th>
-        <th>Assigned to</th>
-
-    </tr>
-    @{ int idx = 0;}
-
-    @foreach (var order in Model)
+    @if (TempData["Msg"] != null)
     {
-        <tr>
-            <td>@(++idx)</td>
-            <td>@order.Id</td>
-            <td>@order.Date</td>
-            <td>@order.Customer.Name</td>
-            <td>@order.NumberofProduct</td>
-            <td>@order.GTotal</td>
-            <td>@order.Status.Name</td>
-            <td>
-                <a href="/Order/ViewOrderDetails/@order.Id" class="btn btn-outline-info">
-                    Show Details
-                </a>
-            </td>
-            <td>
-                <form method="post">
-                    <select name="DeliveryManId" class="p-2">
-                        <option value="" selected disabled>Select an Delevery man</option>
-                        @foreach (var dm in ViewBag.DeliveryMen)
-                        {
-                            <option value="@dm.Id">@dm.Name</option>    
-                        }
-                    </select>
-                    <input type="hidden" name="OrderId" value="@order.Id"  />
-                    <input class="btn btn-outline-info" type="submit" value="Assign" />
-                </form>
-            </td>
-
-        </tr>
+        <div class="alert alert-info text-center fw-semibold shadow-sm">
+            @TempData["Msg"]
+        </div>
     }
-</table>
+
+    <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-body p-4">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle text-center">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>#</th>
+                            <th>Order ID</th>
+                            <th>Order Date</th>
+                            <th>Customer</th>
+                            <th>Total Products</th>
+                            <th>Grand Total</th>
+                            <th>Status</th>
+                            <th>Details</th>
+                            <th>Assigned To</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int idx = 0;
+                        }
+
+                        @foreach (var order in Model)
+                        {
+                            <tr>
+                                <td>@(++idx)</td>
+                                <td class="fw-semibold text-dark">#@order.Id</td>
+                                <td>@order.Date.ToString("dd-MMM-yyyy")</td>
+                                <td>@order.Customer.Name</td>
+                                <td>
+                                    <span class="badge bg-info text-dark fs-6">
+                                        @order.NumberofProduct
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="badge bg-success fs-6">Tk @order.GTotal</span>
+                                </td>
+                                <td>
+                                    <span class="badge bg-warning text-dark">@order.Status.Name</span>
+                                </td>
+                                <td>
+                                    <a href="/Order/ViewOrderDetails/@order.Id" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-eye"></i> View
+                                    </a>
+                                </td>
+                                <td>
+                                    <form method="post" class="d-flex gap-2 justify-content-center">
+                                        <select name="DeliveryManId" class="form-select form-select-sm w-auto" required>
+                                            <option value="" selected disabled>Choose</option>
+                                            @foreach (var dm in ViewBag.DeliveryMen)
+                                            {
+                                                <option value="@dm.Id">@dm.Name</option>
+                                            }
+                                        </select>
+                                        <input type="hidden" name="OrderId" value="@order.Id" />
+                                        <button type="submit" class="btn btn-sm btn-success">
+                                            <i class="bi bi-check-circle"></i> Assign
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

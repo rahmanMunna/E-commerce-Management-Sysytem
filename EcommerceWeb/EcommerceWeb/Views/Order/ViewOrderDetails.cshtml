@@ -1,50 +1,54 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "ViewOrderDetails";
-    var user = (EcommerceWeb.Ef.User)Session["User"] ;
-    if(user.Role == "admin")
+    var user = (EcommerceWeb.Ef.User)Session["User"];
+    if (user.Role == "admin")
     {
         Layout = "~/Views/Shared/_AdminLayout.cshtml";
     }
-    else if(user.Role == "customer")
+    else if (user.Role == "customer")
     {
         Layout = "~/Views/Shared/_CustomerLayout.cshtml";
     }
+}
 
 
+<link rel="stylesheet" href="~/Content/Order/ViewOrderDetails.css" />
 
-    }
+<h2 class="details-title">📋 Order Details</h2>
 
-<h2 class="text-center mb-3">ViewOrderDetails</h2>
-@*<h3> Date : <span class="text-bg-info">@Model[0].Date</span> </h3>*@
-<table class="table table-striped">
-    <tr class="text-center">
-        <th>Serial No</th>
-        <th>Prodcut Name</th>
-        <th>Qty</th>
-        <th>Ordered Price</th>
-        <th>Current Price Price</th>
-    </tr>
-    @{
-        int idx = 0;
-        decimal gTotal = 0;
-    }
+<div class="details-container">
+    <table class="details-table">
+        <thead>
+            <tr>
+                <th>Serial No</th>
+                <th>Product Name</th>
+                <th>Qty</th>
+                <th>Ordered Price</th>
+                <th>Current Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int idx = 0;
+                decimal gTotal = 0;
+            }
 
-    @foreach (var od in Model)
-    {
-        gTotal += od.Price*od.Qty;
+            @foreach (var od in Model)
+            {
+                gTotal += od.Price * od.Qty;
 
-        <tr class="text-center">
-            <td>@(++idx)</td>
-            <td>@od.Product.Name</td>
-            <td>@od.Qty</td>
-            <td>@od.Price</td>
-            <td>@od.Product.Price</td>
-        </tr>
-        
-    }
-<tr class="bg-danger">    
-    <td colspan="4" class="fw-bold">Grand Total</td>
-    <td class="text-center fw-bold">@gTotal</td>
-</tr>
-</table>
+                <tr>
+                    <td>@(++idx)</td>
+                    <td>@od.Product.Name</td>
+                    <td>@od.Qty</td>
+                    <td><span class="price-badge">@od.Price</span></td>
+                    <td><span class="price-badge">@od.Product.Price</span></td>
+                </tr>
+            }
+            <tr class="total-row">
+                <td colspan="4" class="text-end">Grand Total</td>
+                <td>TK @gTotal</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

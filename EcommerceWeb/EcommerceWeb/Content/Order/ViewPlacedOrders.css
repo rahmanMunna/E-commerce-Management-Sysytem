@@ -1,0 +1,114 @@
+﻿/* Title */
+.orders-title {
+    text-align: center;
+    margin: 20px 0 30px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+/* Card-style container */
+.orders-container {
+    max-width: 1000px;
+    margin: auto;
+    background: #fff;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+    overflow-x: auto;
+}
+
+/* Table */
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+    .orders-table thead {
+        background: #f8f9fa;
+    }
+
+    .orders-table th {
+        padding: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        color: #495057;
+        border-bottom: 2px solid #dee2e6;
+        text-align: center;
+        letter-spacing: 0.5px;
+    }
+
+    .orders-table td {
+        padding: 14px;
+        border-bottom: 1px solid #e9ecef;
+        text-align: center;
+        vertical-align: middle;
+        transition: background 0.2s ease;
+    }
+
+    .orders-table tbody tr:hover {
+        background: #fdfdfd;
+    }
+
+/* Status badges */
+.status-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.status-danger {
+    background: #f8d7da;
+    color: #dc3545;
+}
+
+.status-success {
+    background: #d1e7dd;
+    color: #198754;
+}
+
+.status-info {
+    background: #cff4fc;
+    color: #0dcaf0;
+}
+
+/* Buttons */
+.btn-action {
+    display: inline-block;
+    padding: 7px 16px;
+    margin: 2px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    border: 1px solid transparent;
+}
+
+.btn-details {
+    color: #0d6efd;
+    border: 1px solid #0d6efd;
+    background: transparent;
+}
+
+    .btn-details:hover {
+        background: #0d6efd;
+        color: #fff;
+    }
+
+.btn-cancel {
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    background: transparent;
+}
+
+    .btn-cancel:hover {
+        background: #dc3545;
+        color: #fff;
+    }

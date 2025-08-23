@@ -1,40 +1,69 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "AssignedOrder";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2 class="text-center border-bottom border-top p-3">AssignedOrder</h2>
-<table class="table text-center">
-    <tr>
-        <th>Serial</th>
-        <th>Order Id</th>
-        <th>Order Date</th>
-        <th>Assigned Date</th>
-        <th>Customer Name</th>
-        <th>Total product</th>
-        <th>Grand Total</th>
-        <th>Assigned to</th>
-        <th>Status</th>
-        <th>Re-asign</th>
+<div class="container mt-4 mb-5">
 
-    </tr>
-    @{ int idx = 0;}
+    <!-- Gradient Header -->
+    <div class="p-4 mb-4 text-center text-white rounded shadow"
+         style="background: linear-gradient(90deg, #ff7e5f, #feb47b);">
+        <h2 class="fw-bold m-0">
+            <i class="bi bi-truck"></i> Assigned Orders
+        </h2>
+    </div>
 
-    @foreach (var orderTracker in Model)
-    {
-        <tr>
-            <td>@(++idx)</td>
-            @*<td>@orderTracker.Id</td>*@
-            <td>@orderTracker.Order.Id</td>
-            <td>@orderTracker.Order.Date</td>
-            <td>@orderTracker.AssignedTime</td>
-            <td>@orderTracker.Order.Customer.Name</td>
-            <td>@orderTracker.Order.NumberofProduct</td>
-            <td>@orderTracker.Order.GTotal</td>
-            <td>@orderTracker.Status.Name</td>
-            <td>@orderTracker.DeliveryMan.Name</td>
-        </tr>
-    }
-</table>
+    <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-body p-4">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle text-center">
+                    <thead class="table-warning text-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Order ID</th>
+                            <th>Order Date</th>
+                            <th>Assigned Date</th>
+                            <th>Customer</th>
+                            <th>Total Products</th>
+                            <th>Grand Total</th>
+                            <th>Status</th>
+                            <th>Assigned To</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ int idx = 0; }
 
+                        @foreach (var orderTracker in Model)
+                        {
+                            <tr>
+                                <td>@(++idx)</td>
+                                <td class="fw-semibold">#@orderTracker.Order.Id</td>
+                                <td>@orderTracker.Order.Date.ToString("dd-MMM-yyyy")</td>
+                                <td>@orderTracker.AssignedTime.ToString("dd-MMM-yyyy")</td>
+                                <td>@orderTracker.Order.Customer.Name</td>
+                                <td>
+                                    <span class="badge bg-info text-dark fs-6">
+                                        @orderTracker.Order.NumberofProduct
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="badge bg-success fs-6">৳ @orderTracker.Order.GTotal</span>
+                                </td>
+                                <td>
+                                    <span class="badge
+                                        @(orderTracker.Status.Name.ToLower() == "processing" ? "bg-warning text-dark" :
+                                          orderTracker.Status.Name.ToLower() == "delivered" ? "bg-success text-white" :
+                                          orderTracker.Status.Name.ToLower() == "cancelled" ? "bg-danger text-white" :
+                                          "bg-secondary text-white") fs-6">
+                                        @orderTracker.Status.Name
+                                    </span>
+                                </td>
+                                <td class="fw-semibold">@orderTracker.DeliveryMan.Name</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,43 +1,51 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "ViewPlacedOrders";
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 
-<h2 class="text-center mb-4 border bg-warning p-3">Your Places Order</h2>
+<!-- ✅ Enhanced Placed Orders CSS -->
+<link rel="stylesheet" href="~/Content/Order/ViewPlacedOrders.css" />
+
 @if (TempData["Msg"] != null)
 {
-    <div class="alert @TempData["Class"]" role="alert">
+    <div class="alert alert-danger text-center fw-bold" role="alert">
         @TempData["Msg"]
     </div>
 }
 
-<table class="table table-bordered table-striped">
-    <tr class="text-center">
-        <th>Order Id</th>
-        <th>Date</th>
-        <th>Number Of Product</th>
-        <th>Grand Total</th>
-        <th>Status</th>
-        <th>Details</th>
-    </tr>
-    @foreach (var order in Model)
-    {
+<h2 class="orders-title">📦 Your Placed Orders</h2>
 
-        <tr class="text-center">
-            <td>@order.Id</td>
-            <td>@order.Date</td>
-            <td>@order.NumberofProduct</td>
-            <td>@order.GTotal</td>
-            <td class="text-center @(order.StatusId == 5?"text-bg-danger" : order.StatusId == 2 ?  "text-bg-success" : "text-bg-info")">@order.Status.Name</td>
-            <td class="text-center">
-                <a href="/Order/ViewOrderDetails/@order.Id" class="btn btn-outline-info">See details</a>
-                <a href="/Order/CancelOrderByCustomer/@order.Id" class="btn btn-outline-danger">Cancel</a>
-            </td>
-
-
-
-        </tr>
-    }
-</table>
-
+<div class="orders-container">
+    <table class="orders-table">
+        <thead>
+            <tr>
+                <th>Order Id</th>
+                <th>Date</th>
+                <th>No. of Products</th>
+                <th>Grand Total</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>#@order.Id</td>
+                    <td>@order.Date.ToString("dd MMM yyyy")</td>
+                    <td>@order.NumberofProduct</td>
+                    <td><strong>TK @order.GTotal</strong></td>
+                    <td>
+                        <span class="status-badge @(order.StatusId == 5 ? "status-danger" : order.StatusId == 2 ? "status-success" : "status-info")">
+                            @order.Status.Name
+                        </span>
+                    </td>
+                    <td>
+                        <a href="/Order/ViewOrderDetails/@order.Id" class="btn-action btn-details">See Details</a>
+                        <a href="/Order/CancelOrderByCustomer/@order.Id" class="btn-action btn-cancel">Cancel</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

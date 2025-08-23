@@ -1,44 +1,82 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_DeliveryLayout.cshtml";
 }
 
-<h2 class="text-center border-bottom border-top p-3 bg-warning">All Assigned Orders</h2>
-@if (TempData["Msg"] != null)
-{
-    <p class="text-center alert">@TempData["Msg"]</p>
-}
-<table class="table text-center">
-    <tr>
-        <th>Serial</th>
-        <th>Order Id</th>
-        <th>Order Date</th>
-        <th>Assigned Date</th>
-        <th>Customer Name</th>
-        <th>Status</th>
-        <th>Action</th>
+<div class="container mt-4 mb-5">
 
+    <!-- Header -->
+    <div class="card shadow-lg rounded-4 mb-4">
+        <div class="card-body text-center p-3"
+             style="background: linear-gradient(90deg, #f7971e, #ffd200);">
+            <h2 class="text-dark fw-bold m-0">
+                <i class="bi bi-truck me-2"></i> All Assigned Orders
+            </h2>
+        </div>
+    </div>
 
-    </tr>
-    @{ int idx = 0;}
-
-    @foreach (var orderTrackerDb in Model)
+    <!-- Message -->
+    @if (TempData["Msg"] != null)
     {
-        <tr>
-            <td>@(++idx)</td>
-            <td>@orderTrackerDb.Order.Id</td>
-            <td>@orderTrackerDb.Order.Date</td>
-            <td>@orderTrackerDb.AssignedTime</td>
-            <td>@orderTrackerDb.Order.Customer.Name</td>
-            <td>@orderTrackerDb.Status.Name</td>
-
-            <td>
-                <a class="btn btn-outline-success" href="/Delivery/Received/@orderTrackerDb.Id">
-                    Received
-                </a>
-            </td>
-        </tr>
+        <div class="alert alert-info alert-dismissible fade show text-center" role="alert">
+            @TempData["Msg"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     }
-</table>
 
+    @if (Model.Count == 0)
+    {
+        <div class="card text-center shadow-sm rounded-4 my-4 p-4">
+            <i class="bi bi-info-circle fs-1 text-warning mb-3"></i>
+            <h3 class="fw-bold text-secondary mb-2">No Orders Assigned Yet</h3>
+            <p class="text-muted">There are currently no orders assigned to you.</p>
+        </div>
+
+    }
+    else
+    {
+        <!-- Table Card -->
+        <div class="card shadow-sm rounded-4">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover text-center mb-0 align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Serial</th>
+                                <th>Order Id</th>
+                                <th>Order Date</th>
+                                <th>Assigned Date</th>
+                                <th>Customer Name</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ int idx = 0; }
+                            @foreach (var orderTrackerDb in Model)
+                            {
+                                <tr>
+                                    <td>@(++idx)</td>
+                                    <td class="fw-semibold">#@orderTrackerDb.Order.Id</td>
+                                    <td>@orderTrackerDb.Order.Date.ToString("dd-MMM-yyyy")</td>
+                                    <td>@orderTrackerDb.AssignedTime.ToString("dd-MMM-yyyy")</td>
+                                    <td>@orderTrackerDb.Order.Customer.Name</td>
+                                    <td>
+                                        <span class="badge bg-info fs-6">@orderTrackerDb.Status.Name</span>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-sm btn-outline-success" href="/Delivery/Received/@orderTrackerDb.Id">
+                                            <i class="bi bi-check-circle me-1"></i> Received
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+
+
+</div>

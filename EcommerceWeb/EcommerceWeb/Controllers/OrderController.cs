@@ -41,6 +41,31 @@ namespace EcommerceWeb.Controllers
             return View(productGroupByCategory);
         }
 
+        [HttpPost]
+        public ActionResult Index(string ProductName)
+        {
+            var productDb = (from p in db.Products
+                             where p.Name.Contains(ProductName)
+                             select p).ToList();
+
+            if (productDb != null)
+            {
+                var productDTO = MapperHelper.GetMapper().Map<List<ProductDTO>>(productDb);
+
+                var productGroupByCategory = (from p in productDTO
+                                              group p by p.Category.Name into g
+                                              select new ProductGroupByCategoryDTO
+                                              {
+                                                  CategoryName = g.Key,
+                                                  Products = g.ToList()
+                                              }).ToList();
+
+                return View(productGroupByCategory);
+            }
+
+            return View(new ProductGroupByCategoryDTO());
+        }
+
         [Logged]
         [CustomerLogged]
         public ActionResult AddtoCart(int id)
@@ -177,10 +202,11 @@ namespace EcommerceWeb.Controllers
                     return Json(new { qty = c.Qty,price = c.Price});                 
                 }
             }
+            //return RedirectToAction("Cart");
             return Content("Something Wrong");
 
-            
-            
+
+
         }
 
         [HttpPost]
@@ -197,6 +223,7 @@ namespace EcommerceWeb.Controllers
 
                 }
             }
+            //return RedirectToAction("Cart");
             return Content("Something Wrong");
 
         }
