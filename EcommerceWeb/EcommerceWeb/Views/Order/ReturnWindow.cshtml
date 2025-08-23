@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "ReturnWindow";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+@if (TempData["Msg"] != null)
+{
+    <div class="alert alert-dismissible fade show mt-3" role="alert">
+        @TempData["Msg"]
+        
+    </div>
+}
+
+<form method="post">
+    <div class="container my-5">
+        <div class="card shadow-lg border-0 rounded-4" style="max-width: 650px; margin:auto;">
+            <div class="card-header bg-danger text-white text-center rounded-top-4 py-3">
+                <h3 class="fw-bold mb-0">
+                    <i class="bi bi-arrow-counterclockwise"></i> Request a Return
+                </h3>
+            </div>
+            <div class="card-body bg-light p-4">
+                <p class="text-muted mb-4 text-center">
+                    You can request a return if your product was delivered within the return policy window.
+                    Please select the reason and preferred solution below.
+                </p>
+
+                <!-- Return Reason -->
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">📌 Reason for return:</label>
+                    <div class="list-group">
+                        <label class="list-group-item">
+                            <input type="radio" name="reason" value="Wrong item delivered" class="form-check-input me-2">
+                            Wrong item delivered
+                        </label>
+                        <label class="list-group-item">
+                            <input type="radio" name="reason" value="Item arrived damaged" class="form-check-input me-2">
+                            Item arrived damaged
+                        </label>
+                        <label class="list-group-item">
+                            <input type="radio" name="reason" value="Not working properly" class="form-check-input me-2">
+                            Not working properly
+                        </label>
+                        <label class="list-group-item">
+                            <input type="radio" name="reason" value="Missing parts (accessories)" class="form-check-input me-2">
+                            Missing parts (accessories)
+                        </label>
+                        <label class="list-group-item">
+                            <input type="radio" name="reason" value="Size / fit issue (for clothes/shoes)" class="form-check-input me-2">
+                            Size / fit issue (for clothes/shoes)
+                        </label>
+
+                    </div>
+                    <!-- Textarea for "Other" -->
+                    <textarea class="form-control mt-3 d-none" id="otherReason" name="otherReason" rows="3" placeholder="Please specify your reason..."></textarea>
+                </div>
+
+                <!-- Refund or Replacement -->
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">💳 Preferred solution:</label>
+                    <div class="list-group">
+                        <label class="list-group-item">
+                            <input type="radio" name="method" value="Refund" class="form-check-input me-2">
+                            Refund
+                        </label>
+                        <label class="list-group-item">
+                            <input type="radio" name="method" value="Replacement" class="form-check-input me-2">
+                            Replacement
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="text-center">
+                    <input type="hidden" name="id" value="@ViewBag.Id" />
+                    <input type="submit" value="Submit Return Request" class="btn btn-danger px-5 py-2 rounded-pill shadow-sm fw-semibold">
+                </div>
+            </div>
+            <div class="card-footer text-center small text-muted bg-white rounded-bottom-4">
+                Need help? <a class="text-decoration-none text-danger fw-semibold">Contact Customer Support</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+

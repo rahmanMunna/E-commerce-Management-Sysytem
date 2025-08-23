@@ -16,6 +16,12 @@ namespace EcommerceWeb.Controllers
     {
         EcommerceMSEntities3 db = new EcommerceMSEntities3();
 
+        User GetUser()
+        {
+            var user = (User)Session["User"];
+            return user;
+        }
+
         // GET: Order
         [Logged]
         [CustomerLogged]
@@ -350,6 +356,60 @@ namespace EcommerceWeb.Controllers
                            select o).ToList();
             var orderDTO = MapperHelper.GetMapper().Map<List<OrderDTO>>(orderDb);
             return View(orderDTO);
+        }
+
+        [HttpGet]
+        [CustomerLogged]
+        public ActionResult ReturnWindow(int id)
+        {
+            ViewBag.Id = id;
+            
+            return View();
+        }
+
+        [HttpPost]
+        [CustomerLogged]
+        public ActionResult ReturnWindow(int id,string reason,string method)
+        {
+
+            if(reason != null && method != null)
+            {
+                var orderTrackerDb = (from ot in db.OrderTarckers
+                                      where ot.OrderId == id
+                                      select ot).SingleOrDefault();
+
+                var returnTrackerDb = new ReturnsTracker
+                {                                
+                    ReasonToReturn = reason,
+                    Method = method,
+                    StatusId = 1006, // 1006 = requested
+                    RequestTime = DateTime.Now,
+                    OrderTrackerId = orderTrackerDb.Id
+                };
+                db.ReturnsTrackers.Add(returnTrackerDb);
+                //update order and orderTracker tabel also
+                orderTrackerDb.StatusId = 1006; // 1006 = requested 
+                orderTrackerDb.Order.StatusId = 1006; // 1006 = requested   
+
+                db.SaveChanges();
+                TempData["Msg"] = "Return Request has been Sent";
+                return RedirectToAction("RequestTracker");
+            }
+            else
+            {
+                TempData["Msg"] = "Please Choose a reason and mehtod";
+                return View();
+            }
+                
+
+        }
+
+        public ActionResult RequestTracker()
+        {
+            var returnsTrackerDb = (from rt in db.ReturnsTrackers
+                                   where rt.StatusId == 1006 // 1006 = requested
+                                   select rt).ToList();
+            return View(returnsTrackerDb);
         }
     }
 }

@@ -190,6 +190,9 @@
     <Compile Include="Ef\Product.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Ef\ReturnsTracker.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Ef\Status.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -303,6 +306,8 @@
     <Content Include="Views\Customer\ReceivedOrders.cshtml" />
     <Content Include="Views\Product\AllProduct.cshtml" />
     <Content Include="Views\Product\Update.cshtml" />
+    <Content Include="Views\Order\ReturnWindow.cshtml" />
+    <Content Include="Views\Order\RequestTracker.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

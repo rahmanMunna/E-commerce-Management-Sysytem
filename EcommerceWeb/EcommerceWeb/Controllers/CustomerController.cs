@@ -35,7 +35,7 @@ namespace EcommerceWeb.Controllers
         {
             //need to implement DTO
             var user = GetUser();
-            var orderTrackerDb = (from ot in db.OrderTarckers // not OrderTarckers
+            var orderTrackerDb = (from ot in db.OrderTarckers 
                                   where ot.Order.CustomerId == user.CustomerId
                                   && ot.StatusId == 6 // Delivered
                                   select ot).ToList();

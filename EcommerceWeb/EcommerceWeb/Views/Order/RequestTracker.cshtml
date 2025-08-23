@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "RequestTracker";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+
+@if (TempData["Msg"] != null)
+{
+    <div class="alert alert-dismissible fade show mt-3" role="alert">
+        @TempData["Msg"]
+
+    </div>
+}
+
+<div class="container mt-4 mb-5">
+
+
+    <div class="p-4 mb-4 text-center text-white rounded shadow"
+         style="background: linear-gradient(90deg, #4facfe, #00f2fe);">
+        <h2 class="fw-bold m-0">
+            <i class="bi bi-truck"></i> Received Orders
+        </h2>
+    </div>
+
+    @if (Model.Count == 0)
+    {
+        <h4 class="text-center alert alert-info">No orders has been retured.</h4>
+    }
+    else
+    {
+        <div class="card shadow-lg border-0 rounded-3">
+            <div class="card-body p-4">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle text-center">
+                        <thead class="table-primary text-dark">
+                            <tr>
+                                <th>#</th>
+                                <th>Order ID</th>
+                                <th>Order Date</th>
+                                <th>Delivered Date</th>
+                                <th>Status</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ int idx = 0; }
+
+                            @foreach (var returnsTrackerDb in Model)
+                            {
+                                <tr>
+                                    <td>@(++idx)</td>
+                                    <td class="fw-semibold">@returnsTrackerDb.OrderTarcker.OrderId</td>
+                                    <td>@returnsTrackerDb.OrderTarcker.Order.Date</td>
+                                    <td>@returnsTrackerDb.OrderTarcker.DeliveredTime</td>
+                                    <td>
+                                        <span class="badge bg-success fs-6">
+                                            @returnsTrackerDb.Status.Name
+                                        </span>
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+

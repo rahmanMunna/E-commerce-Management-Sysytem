@@ -27,6 +27,7 @@
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="OrderTarckers" Relationship="Self.FK_OrderTarcker_DeliveryMan" FromRole="DeliveryMan" ToRole="OrderTarcker" />
+    <NavigationProperty Name="ReturnsTrackers" Relationship="EcommerceMSModel.FK_ReturnsTracker_DeliveryMan" FromRole="DeliveryMan" ToRole="ReturnsTracker" />
   </EntityType>
   <EntityType Name="OrderDetail">
     <Key>
@@ -70,6 +71,7 @@
     <NavigationProperty Name="DeliveryMan" Relationship="Self.FK_OrderTarcker_DeliveryMan" FromRole="OrderTarcker" ToRole="DeliveryMan" />
     <NavigationProperty Name="Order" Relationship="Self.FK_OrderTarcker_Orders" FromRole="OrderTarcker" ToRole="Orders" />
     <NavigationProperty Name="Status" Relationship="Self.FK_OrderTarcker_Status" FromRole="OrderTarcker" ToRole="Status" />
+    <NavigationProperty Name="ReturnsTrackers" Relationship="EcommerceMSModel.FK_ReturnsTracker_OrderTarcker" FromRole="OrderTarcker" ToRole="ReturnsTracker" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -92,6 +94,7 @@
     <Property Name="Value" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Status" FromRole="Status" ToRole="Orders" />
     <NavigationProperty Name="OrderTarckers" Relationship="Self.FK_OrderTarcker_Status" FromRole="Status" ToRole="OrderTarcker" />
+    <NavigationProperty Name="ReturnsTrackers" Relationship="EcommerceMSModel.FK_ReturnsTracker_Status" FromRole="Status" ToRole="ReturnsTracker" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -243,5 +246,73 @@
       <End Role="Status" EntitySet="Status" />
       <End Role="OrderTarcker" EntitySet="OrderTarckers" />
     </AssociationSet>
+    <EntitySet Name="ReturnsTrackers" EntityType="EcommerceMSModel.ReturnsTracker" />
+    <AssociationSet Name="FK_ReturnsTracker_DeliveryMan" Association="EcommerceMSModel.FK_ReturnsTracker_DeliveryMan">
+      <End Role="DeliveryMan" EntitySet="DeliveryMen" />
+      <End Role="ReturnsTracker" EntitySet="ReturnsTrackers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReturnsTracker_OrderTarcker" Association="EcommerceMSModel.FK_ReturnsTracker_OrderTarcker">
+      <End Role="OrderTarcker" EntitySet="OrderTarckers" />
+      <End Role="ReturnsTracker" EntitySet="ReturnsTrackers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReturnsTracker_Status" Association="EcommerceMSModel.FK_ReturnsTracker_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="ReturnsTracker" EntitySet="ReturnsTrackers" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="ReturnsTracker">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReasonToReturn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Method" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StatusId" Type="Int32" Nullable="false" />
+    <Property Name="DeliverymanId" Type="Int32" />
+    <Property Name="RequestTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ApprovedTime" Type="DateTime" Precision="3" />
+    <Property Name="AssignedTime" Type="DateTime" Precision="3" />
+    <Property Name="PickupTime" Type="DateTime" Precision="3" />
+    <Property Name="RecievedTime" Type="DateTime" Precision="3" />
+    <Property Name="OrderTrackerId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DeliveryMan" Relationship="EcommerceMSModel.FK_ReturnsTracker_DeliveryMan" FromRole="ReturnsTracker" ToRole="DeliveryMan" />
+    <NavigationProperty Name="OrderTarcker" Relationship="EcommerceMSModel.FK_ReturnsTracker_OrderTarcker" FromRole="ReturnsTracker" ToRole="OrderTarcker" />
+    <NavigationProperty Name="Status" Relationship="EcommerceMSModel.FK_ReturnsTracker_Status" FromRole="ReturnsTracker" ToRole="Status" />
+  </EntityType>
+  <Association Name="FK_ReturnsTracker_DeliveryMan">
+    <End Type="EcommerceMSModel.DeliveryMan" Role="DeliveryMan" Multiplicity="0..1" />
+    <End Type="EcommerceMSModel.ReturnsTracker" Role="ReturnsTracker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeliveryMan">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReturnsTracker">
+        <PropertyRef Name="DeliverymanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReturnsTracker_OrderTarcker">
+    <End Type="EcommerceMSModel.OrderTarcker" Role="OrderTarcker" Multiplicity="1" />
+    <End Type="EcommerceMSModel.ReturnsTracker" Role="ReturnsTracker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderTarcker">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReturnsTracker">
+        <PropertyRef Name="OrderTrackerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReturnsTracker_Status">
+    <End Type="EcommerceMSModel.Status" Role="Status" Multiplicity="1" />
+    <End Type="EcommerceMSModel.ReturnsTracker" Role="ReturnsTracker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReturnsTracker">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

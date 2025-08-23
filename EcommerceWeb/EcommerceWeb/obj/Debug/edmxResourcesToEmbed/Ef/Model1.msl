@@ -99,5 +99,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ReturnsTrackers">
+      <EntityTypeMapping TypeName="EcommerceMSModel.ReturnsTracker">
+        <MappingFragment StoreEntitySet="ReturnsTracker">
+          <ScalarProperty Name="OrderTrackerId" ColumnName="OrderTrackerId" />
+          <ScalarProperty Name="RecievedTime" ColumnName="RecievedTime" />
+          <ScalarProperty Name="PickupTime" ColumnName="PickupTime" />
+          <ScalarProperty Name="AssignedTime" ColumnName="AssignedTime" />
+          <ScalarProperty Name="ApprovedTime" ColumnName="ApprovedTime" />
+          <ScalarProperty Name="RequestTime" ColumnName="RequestTime" />
+          <ScalarProperty Name="DeliverymanId" ColumnName="DeliverymanId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="Method" ColumnName="Method" />
+          <ScalarProperty Name="ReasonToReturn" ColumnName="ReasonToReturn" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

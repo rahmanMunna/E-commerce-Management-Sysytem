@@ -18,6 +18,7 @@ namespace EcommerceWeb.Ef
         public DeliveryMan()
         {
             this.OrderTarckers = new HashSet<OrderTarcker>();
+            this.ReturnsTrackers = new HashSet<ReturnsTracker>();
         }
     
         public int Id { get; set; }
@@ -27,5 +28,7 @@ namespace EcommerceWeb.Ef
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderTarcker> OrderTarckers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ReturnsTracker> ReturnsTrackers { get; set; }
     }
 }

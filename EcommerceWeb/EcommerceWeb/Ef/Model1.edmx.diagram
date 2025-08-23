@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6c7293aafabf4a6ca795e7fcd0571386" Name="Diagram1">
+      <Diagram DiagramId="6c7293aafabf4a6ca795e7fcd0571386" Name="Diagram1" ZoomLevel="98">
         <EntityTypeShape EntityType="EcommerceMSModel.Category" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="EcommerceMSModel.Customer" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EcommerceMSModel.DeliveryMan" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
@@ -22,7 +22,11 @@
         <AssociationConnector Association="EcommerceMSModel.FK_Orders_Status" ManuallyRouted="false" />
         <AssociationConnector Association="EcommerceMSModel.FK_OrderTarcker_Orders" ManuallyRouted="false" />
         <AssociationConnector Association="EcommerceMSModel.FK_OrderTarcker_Status" ManuallyRouted="false" />
-      </Diagram>
+        <EntityTypeShape EntityType="EcommerceMSModel.ReturnsTracker" Width="1.5" PointX="10.5" PointY="1.75" />
+        <AssociationConnector Association="EcommerceMSModel.FK_ReturnsTracker_DeliveryMan" />
+        <AssociationConnector Association="EcommerceMSModel.FK_ReturnsTracker_OrderTarcker" />
+        <AssociationConnector Association="EcommerceMSModel.FK_ReturnsTracker_Status" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

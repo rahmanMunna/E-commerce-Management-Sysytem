@@ -19,6 +19,7 @@ namespace EcommerceWeb.Ef
         {
             this.Orders = new HashSet<Order>();
             this.OrderTarckers = new HashSet<OrderTarcker>();
+            this.ReturnsTrackers = new HashSet<ReturnsTracker>();
         }
     
         public int Id { get; set; }
@@ -29,5 +30,7 @@ namespace EcommerceWeb.Ef
         public virtual ICollection<Order> Orders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderTarcker> OrderTarckers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ReturnsTracker> ReturnsTrackers { get; set; }
     }
 }
