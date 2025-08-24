@@ -161,5 +161,45 @@ namespace EcommerceWeb.Controllers
         }
 
 
+
+        [HttpGet]
+        [Logged]
+        [AdminLogged]
+        public ActionResult ApproveReturnRequest()
+        {
+            var returnTrackerDb = (from rt in db.ReturnsTrackers
+                                   where rt.StatusId == 1006
+                                   select rt).ToList();
+
+            var deliveryMen = db.DeliveryMen.ToList();
+            ViewBag.Deliverymen = deliveryMen;
+
+            return View(returnTrackerDb);
+        }
+
+
+        [HttpPost]
+        [Logged]
+        [AdminLogged]
+        public ActionResult ApproveReturnRequest(int requestTrackerId,int deliverymanId)
+        {
+            var requestTrackerdb = db.ReturnsTrackers.Find(requestTrackerId);
+            if (requestTrackerdb != null)
+            {
+                requestTrackerdb.StatusId = 1009; // Approved
+                requestTrackerdb.DeliverymanId = Convert.ToInt32(deliverymanId);
+                requestTrackerdb.ApprovedTime = (DateTime)DateTime.Now;
+                requestTrackerdb.ApprovedTime = (DateTime)DateTime.Now;
+                db.SaveChanges();
+                TempData["Msg"] = "Return request approved and assigned to delivery";
+            }
+            else
+            {
+                TempData["Msg"] = "Something went wrong";
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

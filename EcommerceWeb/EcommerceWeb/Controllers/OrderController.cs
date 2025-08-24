@@ -404,6 +404,9 @@ namespace EcommerceWeb.Controllers
 
         }
 
+
+        [Logged]
+        [CustomerLogged]
         public ActionResult RequestTracker()
         {
             var returnsTrackerDb = (from rt in db.ReturnsTrackers
