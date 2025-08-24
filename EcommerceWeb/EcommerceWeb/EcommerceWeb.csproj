@@ -148,6 +148,7 @@
     <Compile Include="DTO\DeliveryManDTO.cs" />
     <Compile Include="DTO\OrderTrackerDTO.cs" />
     <Compile Include="DTO\ProductGroupByCategoryDTO.cs" />
+    <Compile Include="DTO\ReturnsTrackerDTO.cs" />
     <Compile Include="DTO\StatusDTO.cs" />
     <Compile Include="DTO\CustomerDTO.cs" />
     <Compile Include="DTO\OrderDetailDTO.cs" />
@@ -308,6 +309,8 @@
     <Content Include="Views\Product\Update.cshtml" />
     <Content Include="Views\Order\ReturnWindow.cshtml" />
     <Content Include="Views\Order\RequestTracker.cshtml" />
+    <Content Include="Views\Admin\ReturnRequestDetails.cshtml" />
+    <Content Include="Views\Admin\ViewReturnDetails.cshtml" />
     <Content Include="Views\Admin\ApproveReturnRequest.cshtml" />
   </ItemGroup>
   <ItemGroup>

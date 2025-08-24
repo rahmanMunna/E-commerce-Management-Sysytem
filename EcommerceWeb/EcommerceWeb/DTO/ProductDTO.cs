@@ -15,7 +15,7 @@ namespace EcommerceWeb.DTO
         public string Name { get; set; }
 
         [Required]
-        //[RegularExpression(@"^\d+$", ErrorMessage = "Qty must be a valid Integer Number")]
+        [Range(0,10000)]
         public int Qty { get; set; }
 
 

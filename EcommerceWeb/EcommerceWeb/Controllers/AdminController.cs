@@ -52,7 +52,8 @@ namespace EcommerceWeb.Controllers
             var orderDTO = MapperHelper.GetMapper().Map<List<OrderDTO>>(orderDb);
 
             //Load DeliveryMan and attach to ViewBag    
-            ViewBag.DeliveryMen = db.DeliveryMen.ToList();
+            var deliverymenListDb = db.DeliveryMen.ToList(); ;
+            ViewBag.DeliveryMen = deliverymenListDb;
 
 
             return View(orderDTO);
@@ -157,49 +158,84 @@ namespace EcommerceWeb.Controllers
             var orderTrackerDb = (from ot in db.OrderTarckers
                                  where ot.StatusId == 1002 // Assigned
                                  select ot).ToList();
+            var orderTrackerDTO = MapperHelper.GetMapper().Map<List<OrderTrackerDTO>>(orderTrackerDb);  
             return View(orderTrackerDb);
         }
 
-
-
-        [HttpGet]
+       
         [Logged]
         [AdminLogged]
-        public ActionResult ApproveReturnRequest()
+        public ActionResult ReturnRequestDetails()
         {
             var returnTrackerDb = (from rt in db.ReturnsTrackers
                                    where rt.StatusId == 1006
                                    select rt).ToList();
 
-            var deliveryMen = db.DeliveryMen.ToList();
-            ViewBag.Deliverymen = deliveryMen;
+           var returnTrackerDTO = MapperHelper.GetMapper().Map<List<ReturnsTrackerDTO>>(returnTrackerDb);
 
-            return View(returnTrackerDb);
+            return View(returnTrackerDTO);
         }
 
+        [Logged]
+        [AdminLogged]
+        public ActionResult ViewReturnDetails(int id)
+        {
+            var returnTrackerDb = db.ReturnsTrackers.Find(id);
+            var returnTrackerDTO = MapperHelper.GetMapper().Map<ReturnsTrackerDTO>(returnTrackerDb);
+
+            return View(returnTrackerDTO);
+        }
+
+        [HttpGet]
+        [Logged]
+        [AdminLogged]
+        public ActionResult ApproveReturnRequest(int id)
+        {
+            var deliveryManListDb = db.DeliveryMen.ToList();
+            var deliveryManDTO = MapperHelper.GetMapper().Map<List<DeliveryManDTO>>(deliveryManListDb);
+
+            ViewBag.ReturnTrackerId = id;   
+
+
+            return View(deliveryManDTO);
+        }
 
         [HttpPost]
         [Logged]
         [AdminLogged]
-        public ActionResult ApproveReturnRequest(int requestTrackerId,int deliverymanId)
+        public ActionResult ApproveReturnRequest(int returnTrackerId, int deliverymanId = 0)
         {
-            var requestTrackerdb = db.ReturnsTrackers.Find(requestTrackerId);
-            if (requestTrackerdb != null)
+            if(deliverymanId != 0)
             {
-                requestTrackerdb.StatusId = 1009; // Approved
-                requestTrackerdb.DeliverymanId = Convert.ToInt32(deliverymanId);
-                requestTrackerdb.ApprovedTime = (DateTime)DateTime.Now;
-                requestTrackerdb.ApprovedTime = (DateTime)DateTime.Now;
+                var returnTrackerDb = db.ReturnsTrackers.Find(returnTrackerId);
+                returnTrackerDb.OrderTarcker.StatusId = 1009; // Return Approved
+                returnTrackerDb.StatusId = 1009; // Return Approved 
+                returnTrackerDb.OrderTarcker.Order.StatusId = 1009; // Return Approved 
+                returnTrackerDb.DeliverymanId = (int)deliverymanId;
+                returnTrackerDb.ApprovedTime = (DateTime)DateTime.Now;
+                returnTrackerDb.AssignedTime = (DateTime)DateTime.Now;
+
                 db.SaveChanges();
-                TempData["Msg"] = "Return request approved and assigned to delivery";
+
+                var deliverymanName = db.DeliveryMen.Find(deliverymanId).Name;
+
+                TempData["Msg"] = "Return request approved and assigned to deliveryman Id : "+ deliverymanName;
+
+                return RedirectToAction("ReturnRequestDetails");
             }
             else
             {
-                TempData["Msg"] = "Something went wrong";
+                TempData["Msg"] = "Please select a deliveryman";
+                return View();
             }
 
-            return RedirectToAction("Index");
+
+            
         }
+
+
+
+
 
     }
 }

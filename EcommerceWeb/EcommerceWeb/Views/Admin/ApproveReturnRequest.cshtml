@@ -1,90 +1,68 @@
-﻿
-@{
-    ViewBag.Title = "ApproveReturnRequest";
-    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+﻿@{
+    ViewBag.Title = "Approve Return Request";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-
-@if (TempData["Msg"] != null)
-{
-    <div class="alert alert-dismissible fade show mt-3" role="alert">
-        @TempData["Msg"]
-
-    </div>
-}
-
-<div class="container mt-4 mb-5">
-
-
-    <div class="p-4 mb-4 text-center text-white rounded shadow"
-         style="background: linear-gradient(90deg, #4facfe, #00f2fe);">
-        <h2 class="fw-bold m-0">
-            <i class="bi bi-truck"></i> Approve Return Request
+<div class="container my-5">
+    <!-- Page Title -->
+    <div class="text-center mb-4">
+        <h2 class="fw-bold text-white py-3 px-4 rounded shadow"
+            style="background: linear-gradient(90deg, #36d1dc, #5b86e5);">
+            Approve Return Request
         </h2>
+        <p class="text-muted mt-2">Assign a deliveryman to pick up the returned order</p>
     </div>
 
-    @if (Model.Count == 0)
+    @if (TempData["Msg"] != null)
     {
-        <h4 class="text-center alert alert-info">No orders has been retured.</h4>
+        <div class="alert alert-success alert-dismissible fade show shadow-sm border-0 rounded-3 mt-4 px-4 py-3"
+             style="font-weight: 500;"
+             role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i>
+            @TempData["Msg"]
+
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     }
-    else
-    {
-        <div class="card shadow-lg border-0 rounded-3">
-            <div class="card-body p-4">
-                <div class="table-responsive">
-                    <table class="table table-hover align-middle text-center">
-                        <thead class="table-primary text-dark">
-                            <tr>
-                                <th>#</th>
-                                <th>Order ID</th>
-                                <th>Order Date</th>
-                                <th>Delivered Date</th>
-                                <th>Status</th>
-                                
-                                <th>Assign</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @{ int idx = 0; }
 
-                            @foreach (var returnsTrackerDb in Model)
-                            {
-                                <tr>
-                                    <td>@(++idx)</td>
-                                    <td class="fw-semibold">@returnsTrackerDb.OrderTarcker.OrderId</td>
-                                    <td>@returnsTrackerDb.OrderTarcker.Order.Date</td>
-                                    <td>@returnsTrackerDb.OrderTarcker.DeliveredTime</td>
-                                    <td>
-                                        <span class="badge bg-success fs-6">
-                                            @returnsTrackerDb.Status.Name
-                                        </span>
-                                    </td>
+    <!-- Form Card -->
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg rounded-4 border-0">
+                <div class="card-body p-4">
+                    <form method="post">
+                        <!-- Deliveryman Selection -->
+                        <div class="mb-4">
+                            <label for="deliverymanId" class="form-label fw-semibold">Select Deliveryman</label>
+                            <select id="deliverymanId" name="deliverymanId" class="form-select form-select-lg rounded-3 shadow-sm">
+                                <option value="0" selected disabled>Choose a deliveryman...</option>
+                                @foreach (var d in Model)
+                                {
+                                    <option value="@d.Id">@d.Name</option>
+                                }
+                            </select>
+                            <input type="hidden" value="@ViewBag.ReturnTrackerId" name="returnTrackerId" />
+                        </div>
 
-                                    <td>
-                                        <form method="post">
-                                            <select name="deliverymanId">
-                                                <option value="" selected disabled>Select a Delivery man</option>
-                                                @foreach (var dm in ViewBag.Deliverymen)
-                                                {
-                                                    <option value="@dm.Id">@dm.Name</option>
-                                                }
-                                            </select>
-                                            <input name="requestTrackerId" type="hidden" value="@returnsTrackerDb.Id" />
-                                            <input type="submit" class="btn btn-outline-success" value="Approved" />
-
-                                        </form>
-                                    </td>
-                                   
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
+                        <!-- Submit Button -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-lg text-white rounded-3 shadow-sm"
+                                    style="background: linear-gradient(90deg, #56ab2f, #a8e063); transition: all 0.3s ease;">
+                                <i class="bi bi-check-circle me-2"></i> Assign Deliveryman
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    }
+    </div>
 </div>
 
-
-
+<style>
+    button:hover {
+        background: linear-gradient(90deg, #3d7d21, #7cc852) !important;
+        transform: translateY(-2px);
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    }
+</style>

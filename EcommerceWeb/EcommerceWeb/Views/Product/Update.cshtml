@@ -48,7 +48,11 @@
             <label for="CategoryId" class="form-label fw-bold">Category</label>
             <select class="form-select" id="CategoryId" name="CategoryId" required>
                 <option disabled  value="">-- Select a Category --</option>
-                <option selected value="@Model.CategoryId">@Model.Category.Name</option>
+                @foreach(var c in ViewBag.Categories)
+                {
+                    <option selected="@(c.Id == Model.CategoryId)" value="@c.Id">@c.Name</option>
+                }
+                
             </select>
             <span class="text-danger">@Html.ValidationMessage("CategoryId")</span>
         </div>

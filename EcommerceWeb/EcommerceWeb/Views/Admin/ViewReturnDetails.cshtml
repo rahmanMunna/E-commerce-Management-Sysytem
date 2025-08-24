@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "View Return Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .btn-gradient {
+        color: #fff;
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-details {
+        background: linear-gradient(90deg, #36d1dc, #5b86e5);
+    }
+
+        .btn-details:hover {
+            background: linear-gradient(90deg, #2a9aa4, #3c5dc2);
+            transform: translateY(-2px);
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+        }
+
+    .btn-approve {
+        background: linear-gradient(90deg, #56ab2f, #a8e063);
+    }
+
+        .btn-approve:hover {
+            background: linear-gradient(90deg, #3d7d21, #7cc852);
+            transform: translateY(-2px);
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+        }
+
+    .btn-reject {
+        background: linear-gradient(90deg, #ff512f, #dd2476);
+    }
+
+        .btn-reject:hover {
+            background: linear-gradient(90deg, #d72e17, #a41a57);
+            transform: translateY(-2px);
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
+        }
+</style>
+
+<div class="container my-5">
+    <!-- Page Header -->
+    <div class="text-center mb-4">
+        <h2 class="fw-bold text-white py-3 px-4 rounded shadow"
+            style="background: linear-gradient(90deg, #36d1dc, #5b86e5);">
+            Return Request Details
+        </h2>
+    </div>
+
+    <!-- Details Table -->
+    <div class="card shadow-lg rounded-4">
+        <div class="card-body p-4">
+            <table class="table table-hover table-bordered align-middle text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Return Request Time</th>
+                        <th>Reason</th>
+                        <th>Method</th>
+                        <th>Delivered Time</th>
+                        <th>Delivered By</th>
+                        <th>Customer Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.OrderTarcker.OrderId</td>
+                        <td>@Model.RequestTime</td>
+                        <td class="text-danger fw-semibold">@Model.ReasonToReturn</td>
+                        <td>@Model.Method</td>
+                        <td>@Model.OrderTarcker.DeliveredTime</td>
+                        <td>@Model.OrderTarcker.DeliveryMan.Name</td>
+                        <td>@Model.OrderTarcker.Order.Customer.Name</td>
+                        <td>
+                            <div class="d-flex justify-content-center gap-2 flex-wrap">
+                                <a class="btn btn-sm btn-gradient btn-details px-3">
+                                    <i class="bi bi-eye"></i> Details
+                                </a>
+                                <a href="/Admin/ApproveReturnRequest/@Model.Id" class="btn btn-sm btn-gradient btn-approve px-3">
+                                    <i class="bi bi-check-circle"></i> Approve
+                                </a>
+                                <a class="btn btn-sm btn-gradient btn-reject px-3">
+                                    <i class="bi bi-x-circle"></i> Reject
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

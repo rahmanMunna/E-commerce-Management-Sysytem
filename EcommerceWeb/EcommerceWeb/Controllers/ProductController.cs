@@ -46,6 +46,9 @@ namespace EcommerceWeb.Controllers
         public ActionResult Update(int id)
         {
             var productDb = db.Products.Find(id);
+            var allCategories = db.Categories.ToList(); 
+
+            ViewBag.Categories = MapperHelper.GetMapper().Map<List<CategoryDTO>>(allCategories);
 
             var productDTO = MapperHelper.GetMapper().Map<ProductDTO>(productDb);
 
