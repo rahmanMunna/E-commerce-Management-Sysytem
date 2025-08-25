@@ -1,17 +1,21 @@
 ﻿
 @{
-    ViewBag.Title = "RequestTracker";
-    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    ViewBag.Title = "AssingedToPickup";
+    Layout = "~/Views/Shared/_DeliveryLayout.cshtml";
 }
-
 
 @if (TempData["Msg"] != null)
 {
-    <div class="alert alert-dismissible fade show mt-3" role="alert">
+    <div class="alert alert-success alert-dismissible fade show shadow-sm border-0 rounded-3 mt-4 px-4 py-3"
+         style="font-weight: 500;"
+         role="alert">
+        <i class="bi bi-check-circle-fill me-2"></i>
         @TempData["Msg"]
 
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 }
+
 
 <div class="container mt-4 mb-5">
 
@@ -19,7 +23,7 @@
     <div class="p-4 mb-4 text-center text-white rounded shadow"
          style="background: linear-gradient(90deg, #4facfe, #00f2fe);">
         <h2 class="fw-bold m-0">
-            <i class="bi bi-truck"></i> Track Returned Product
+            <i class="bi bi-truck"></i> Assign Return Product to Pickup
         </h2>
     </div>
 
@@ -39,25 +43,37 @@
                                 <th>Order ID</th>
                                 <th>Order Date</th>
                                 <th>Delivered Date</th>
+                                <th>Assigne Date</th>
+
                                 <th>Status</th>
+                                <th>Action</th>
+
+
 
                             </tr>
                         </thead>
                         <tbody>
                             @{ int idx = 0; }
 
-                            @foreach (var returnsTrackerDb in Model)
+                            @foreach (var returnsTracker in Model)
                             {
                                 <tr>
                                     <td>@(++idx)</td>
-                                    <td class="fw-semibold">@returnsTrackerDb.OrderTarcker.OrderId</td>
-                                    <td>@returnsTrackerDb.OrderTarcker.Order.Date</td>
-                                    <td>@returnsTrackerDb.OrderTarcker.DeliveredTime</td>
+                                    <td class="fw-semibold">@returnsTracker.OrderTarcker.OrderId</td>
+                                    <td>@returnsTracker.OrderTarcker.Order.Date</td>
+                                    <td>@returnsTracker.OrderTarcker.DeliveredTime</td>
+                                    <td>@returnsTracker.AssignedTime</td>
                                     <td>
                                         <span class="badge bg-success fs-6">
-                                            @returnsTrackerDb.Status.Name
+                                            @returnsTracker.Status.Name
                                         </span>
                                     </td>
+                                    <td>
+                                        <a href="/Delivery/PickedUp/@returnsTracker.Id" class="btn btn-outline-success">
+                                            PickedUp
+                                        </a>
+                                    </td>
+
 
                                 </tr>
                             }
@@ -68,5 +84,4 @@
         </div>
     }
 </div>
-
 

@@ -2,6 +2,7 @@
 using EcommerceWeb.Auth;
 using EcommerceWeb.DTO;
 using EcommerceWeb.Ef;
+using EcommerceWeb.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -96,6 +97,42 @@ namespace EcommerceWeb.Controllers
             return View(orderTrackerDb);
 
         }
+
+
+        [Logged]
+        [DeliveryLogged]
+        public ActionResult PickupTracker()
+        {
+            var user = GetUser();
+
+            var returnTrackerDb = (from rt in db.ReturnsTrackers
+                                   where rt.DeliverymanId == user.DeliveryManId
+                                   && rt.StatusId == 1009
+                                   select rt).ToList();
+            //ViewBag.StatusId = statusId;
+
+            var returnTrackerDTO = MapperHelper.GetMapper().Map<List<ReturnsTrackerDTO>>(returnTrackerDb);
+
+            return View(returnTrackerDTO);
+        }
+
+
+        [Logged]
+        [DeliveryLogged]
+        public ActionResult PickedUp(int id)
+        {
+
+            var returnTrackerDb = db.ReturnsTrackers.Find(id);
+            returnTrackerDb.StatusId = 1011; //1011 = Picked up 
+            returnTrackerDb.OrderTarcker.StatusId = 1011; //1011 = Picked up    
+            returnTrackerDb.OrderTarcker.Order.StatusId = 1011; //1011 = Picked up
+            returnTrackerDb.PickupTime = DateTime.Now;  
+            db.SaveChanges();
+            TempData["Msg"] = "Return for Order-" + returnTrackerDb.OrderTrackerId + " is picked up";   
+            return RedirectToAction("Index");
+
+        }
+
     }
-        
+
 }

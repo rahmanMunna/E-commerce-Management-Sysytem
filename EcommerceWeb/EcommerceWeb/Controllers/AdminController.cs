@@ -167,11 +167,9 @@ namespace EcommerceWeb.Controllers
         [AdminLogged]
         public ActionResult ReturnRequestDetails()
         {
-            var returnTrackerDb = (from rt in db.ReturnsTrackers
-                                   where rt.StatusId == 1006
-                                   select rt).ToList();
+            var returnTrackerDb = db.ReturnsTrackers.ToList();
 
-           var returnTrackerDTO = MapperHelper.GetMapper().Map<List<ReturnsTrackerDTO>>(returnTrackerDb);
+            var returnTrackerDTO = MapperHelper.GetMapper().Map<List<ReturnsTrackerDTO>>(returnTrackerDb);
 
             return View(returnTrackerDTO);
         }
@@ -231,6 +229,42 @@ namespace EcommerceWeb.Controllers
 
 
             
+        }
+
+        public ActionResult Recieved(int id)
+        {
+            var returnTrackerDb = db.ReturnsTrackers.Find(id);  
+            returnTrackerDb.StatusId = 1012; // Recieved
+            returnTrackerDb.OrderTarcker.StatusId = 1012; 
+            returnTrackerDb.RecievedTime = DateTime.Now;
+            returnTrackerDb.OrderTarcker.Order.StatusId = 1012;
+
+            //update to inventory
+            var orderId = returnTrackerDb.OrderTarcker.OrderId;
+            UpdateInventoryAfterReturn(orderId);
+            db.SaveChanges();
+
+            TempData["Msg"] = "Product has been recieved and Inventory has been updated";
+            return RedirectToAction("ReturnRequestDetails");
+
+
+
+        }
+
+        public void UpdateInventoryAfterReturn(int orderId)
+        {
+            var orderDetailsDb = (from od in db.OrderDetails
+                                  where od.OrderId == orderId
+                                  select od).ToList();
+
+            foreach (var od in orderDetailsDb)
+            {
+                od.Product.Qty += od.Qty;
+            }
+
+            db.SaveChanges();
+
+
         }
 
 

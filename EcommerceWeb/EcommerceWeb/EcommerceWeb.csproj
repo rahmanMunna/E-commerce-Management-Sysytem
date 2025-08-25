@@ -312,6 +312,7 @@
     <Content Include="Views\Admin\ReturnRequestDetails.cshtml" />
     <Content Include="Views\Admin\ViewReturnDetails.cshtml" />
     <Content Include="Views\Admin\ApproveReturnRequest.cshtml" />
+    <Content Include="Views\Delivery\PickupTracker.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
