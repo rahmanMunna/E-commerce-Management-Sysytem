@@ -35,5 +35,8 @@ namespace EcommerceWeb.Ef
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<ReturnsTracker> ReturnsTrackers { get; set; }
+        public virtual DbSet<PaymentMethod> PaymentMethods { get; set; }
+        public virtual DbSet<Transaction> Transactions { get; set; }
+        public virtual DbSet<TransactionStatu> TransactionStatus { get; set; }
     }
 }

@@ -55,6 +55,11 @@
     <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Orders" FromRole="Orders" ToRole="OrderDetails" />
     <NavigationProperty Name="Status" Relationship="Self.FK_Orders_Status" FromRole="Orders" ToRole="Status" />
     <NavigationProperty Name="OrderTarckers" Relationship="Self.FK_OrderTarcker_Orders" FromRole="Orders" ToRole="OrderTarcker" />
+    <NavigationProperty Name="Transactions" Relationship="EcommerceMSModel.FK_Transactions_Orders" FromRole="Order" ToRole="Transaction" />
+    <Property Name="PaymentMethod" Type="Int32" Nullable="false" />
+    <Property Name="PaymentStatus" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PaymentMethod1" Relationship="EcommerceMSModel.FK_Orders_PaymentMethods" FromRole="Order" ToRole="PaymentMethod" />
+    <NavigationProperty Name="TransactionStatu" Relationship="EcommerceMSModel.FK_Orders_TransactionStatus" FromRole="Order" ToRole="TransactionStatu" />
   </EntityType>
   <EntityType Name="OrderTarcker">
     <Key>
@@ -259,6 +264,29 @@
       <End Role="Status" EntitySet="Status" />
       <End Role="ReturnsTracker" EntitySet="ReturnsTrackers" />
     </AssociationSet>
+    <EntitySet Name="PaymentMethods" EntityType="EcommerceMSModel.PaymentMethod" />
+    <EntitySet Name="Transactions" EntityType="EcommerceMSModel.Transaction" />
+    <EntitySet Name="TransactionStatus" EntityType="EcommerceMSModel.TransactionStatu" />
+    <AssociationSet Name="FK_Transactions_Orders" Association="EcommerceMSModel.FK_Transactions_Orders">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Transaction" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_PaymentMethods" Association="EcommerceMSModel.FK_Transactions_PaymentMethods">
+      <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+      <End Role="Transaction" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_TransactionStatus" Association="EcommerceMSModel.FK_Transactions_TransactionStatus">
+      <End Role="TransactionStatu" EntitySet="TransactionStatus" />
+      <End Role="Transaction" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_PaymentMethods" Association="EcommerceMSModel.FK_Orders_PaymentMethods">
+      <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_TransactionStatus" Association="EcommerceMSModel.FK_Orders_TransactionStatus">
+      <End Role="TransactionStatu" EntitySet="TransactionStatus" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="ReturnsTracker">
     <Key>
@@ -312,6 +340,99 @@
       </Principal>
       <Dependent Role="ReturnsTracker">
         <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Transactions" Relationship="EcommerceMSModel.FK_Transactions_PaymentMethods" FromRole="PaymentMethod" ToRole="Transaction" />
+    <NavigationProperty Name="Orders" Relationship="EcommerceMSModel.FK_Orders_PaymentMethods" FromRole="PaymentMethod" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="TotalAmount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="PaidAmount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="Method" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Order" Relationship="EcommerceMSModel.FK_Transactions_Orders" FromRole="Transaction" ToRole="Order" />
+    <NavigationProperty Name="PaymentMethod" Relationship="EcommerceMSModel.FK_Transactions_PaymentMethods" FromRole="Transaction" ToRole="PaymentMethod" />
+    <NavigationProperty Name="TransactionStatu" Relationship="EcommerceMSModel.FK_Transactions_TransactionStatus" FromRole="Transaction" ToRole="TransactionStatu" />
+  </EntityType>
+  <EntityType Name="TransactionStatu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Transactions" Relationship="EcommerceMSModel.FK_Transactions_TransactionStatus" FromRole="TransactionStatu" ToRole="Transaction" />
+    <NavigationProperty Name="Orders" Relationship="EcommerceMSModel.FK_Orders_TransactionStatus" FromRole="TransactionStatu" ToRole="Order" />
+  </EntityType>
+  <Association Name="FK_Transactions_Orders">
+    <End Type="EcommerceMSModel.Order" Role="Order" Multiplicity="1" />
+    <End Type="EcommerceMSModel.Transaction" Role="Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_PaymentMethods">
+    <End Type="EcommerceMSModel.PaymentMethod" Role="PaymentMethod" Multiplicity="1" />
+    <End Type="EcommerceMSModel.Transaction" Role="Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="Method" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_TransactionStatus">
+    <End Type="EcommerceMSModel.TransactionStatu" Role="TransactionStatu" Multiplicity="1" />
+    <End Type="EcommerceMSModel.Transaction" Role="Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransactionStatu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_PaymentMethods">
+    <End Type="EcommerceMSModel.PaymentMethod" Role="PaymentMethod" Multiplicity="1" />
+    <End Type="EcommerceMSModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="PaymentMethod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_TransactionStatus">
+    <End Type="EcommerceMSModel.TransactionStatu" Role="TransactionStatu" Multiplicity="1" />
+    <End Type="EcommerceMSModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransactionStatu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="PaymentStatus" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -201,11 +201,18 @@
             <input type="hidden" name="total" value="@total" />
             <input type="hidden" name="totalProduct" value="@Model.Count" />
 
+            <label class="custom-radio">
+                <input type="radio" name="PaymentMethod" checked value="1" />
+                <span class="radio-checkmark"></span>
+                Cash on Delivery
+            </label>
+
             <input id="BtnPlaceOrder" type="submit"
                    value="Place Order"
                    @(total == 0 ? "disabled" : "")
                    class="btn-checkout" />
         </form>
+
     }
 </div>
 

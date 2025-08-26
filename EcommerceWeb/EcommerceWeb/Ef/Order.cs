@@ -19,6 +19,7 @@ namespace EcommerceWeb.Ef
         {
             this.OrderDetails = new HashSet<OrderDetail>();
             this.OrderTarckers = new HashSet<OrderTarcker>();
+            this.Transactions = new HashSet<Transaction>();
         }
     
         public int Id { get; set; }
@@ -27,6 +28,8 @@ namespace EcommerceWeb.Ef
         public int StatusId { get; set; }
         public int NumberofProduct { get; set; }
         public int CustomerId { get; set; }
+        public int PaymentMethod { get; set; }
+        public int PaymentStatus { get; set; }
     
         public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -34,5 +37,9 @@ namespace EcommerceWeb.Ef
         public virtual Status Status { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderTarcker> OrderTarckers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Transaction> Transactions { get; set; }
+        public virtual PaymentMethod PaymentMethod1 { get; set; }
+        public virtual TransactionStatu TransactionStatu { get; set; }
     }
 }

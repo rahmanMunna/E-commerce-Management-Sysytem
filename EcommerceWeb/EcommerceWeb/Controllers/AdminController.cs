@@ -24,10 +24,10 @@ namespace EcommerceWeb.Controllers
             var OrderDb = (from order in db.Orders
                               where order.StatusId == 1 
                               select order).ToList();
-            var orderDTO = MapperHelper.GetMapper().Map<List<OrderDTO>>(OrderDb);
+            //var orderDTO = MapperHelper.GetMapper().Map<List<OrderDTO>>(OrderDb);
             
 
-            return View(orderDTO);
+            return View(OrderDb);
         }
 
         [Logged]

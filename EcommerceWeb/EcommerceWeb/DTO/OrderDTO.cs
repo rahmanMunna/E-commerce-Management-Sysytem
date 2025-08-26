@@ -15,9 +15,14 @@ namespace EcommerceWeb.DTO
         public int StatusId { get; set; }
         public int NumberofProduct { get; set; }
         public int CustomerId { get; set; }
-        
+        public int PaymentMethod { get; set; }
+        public int PaymentStatus { get; set; }
+
         public virtual StatusDTO Status { get; set; }
         public virtual CustomerDTO Customer { get; set; }
+
+        public virtual PaymentMethodDTO PaymentMethod1 { get; set; }
+        public virtual TransactionStatuDTO TransactionStatu { get; set; }
 
     }
 }

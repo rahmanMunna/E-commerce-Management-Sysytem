@@ -111,7 +111,7 @@ namespace EcommerceWeb.Controllers
 
         [Logged]
         [CustomerLogged]
-        public ActionResult PlaceOrder(decimal total,int totalProduct)
+        public ActionResult PlaceOrder(decimal total,int totalProduct,int PaymentMethod)
         {
             var cart = (List<ProductDTO>)Session["cart"];
             var user = (User)Session["User"];
@@ -124,7 +124,9 @@ namespace EcommerceWeb.Controllers
                     GTotal = total,
                     StatusId = 1,
                     NumberofProduct = totalProduct,
-                    CustomerId = (int)user.CustomerId // default for now
+                    CustomerId = (int)user.CustomerId,
+                    PaymentMethod = PaymentMethod,
+                    PaymentStatus = 1 // 1 = Pending
                 };
 
                 db.Orders.Add(order);

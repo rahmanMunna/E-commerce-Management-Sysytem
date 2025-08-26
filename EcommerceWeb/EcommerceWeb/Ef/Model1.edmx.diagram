@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6c7293aafabf4a6ca795e7fcd0571386" Name="Diagram1" ZoomLevel="98">
+      <Diagram DiagramId="6c7293aafabf4a6ca795e7fcd0571386" Name="Diagram1" ZoomLevel="85">
         <EntityTypeShape EntityType="EcommerceMSModel.Category" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="EcommerceMSModel.Customer" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EcommerceMSModel.DeliveryMan" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
@@ -26,6 +26,14 @@
         <AssociationConnector Association="EcommerceMSModel.FK_ReturnsTracker_DeliveryMan" />
         <AssociationConnector Association="EcommerceMSModel.FK_ReturnsTracker_OrderTarcker" />
         <AssociationConnector Association="EcommerceMSModel.FK_ReturnsTracker_Status" />
+        <EntityTypeShape EntityType="EcommerceMSModel.PaymentMethod" Width="1.5" PointX="6" PointY="12.625" />
+        <EntityTypeShape EntityType="EcommerceMSModel.Transaction" Width="1.5" PointX="8.25" PointY="0.75" />
+        <EntityTypeShape EntityType="EcommerceMSModel.TransactionStatu" Width="1.5" PointX="6" PointY="14.875" />
+        <AssociationConnector Association="EcommerceMSModel.FK_Transactions_Orders" />
+        <AssociationConnector Association="EcommerceMSModel.FK_Transactions_PaymentMethods" />
+        <AssociationConnector Association="EcommerceMSModel.FK_Transactions_TransactionStatus" />
+        <AssociationConnector Association="EcommerceMSModel.FK_Orders_PaymentMethods" />
+        <AssociationConnector Association="EcommerceMSModel.FK_Orders_TransactionStatus" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
