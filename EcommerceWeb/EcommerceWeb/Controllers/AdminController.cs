@@ -24,10 +24,10 @@ namespace EcommerceWeb.Controllers
             var OrderDb = (from order in db.Orders
                               where order.StatusId == 1 
                               select order).ToList();
-            //var orderDTO = MapperHelper.GetMapper().Map<List<OrderDTO>>(OrderDb);
+            var orderDTO = MapperHelper.GetMapper().Map<List<OrderDTO>>(OrderDb);
             
 
-            return View(OrderDb);
+            return View(orderDTO);
         }
 
         [Logged]
@@ -159,7 +159,7 @@ namespace EcommerceWeb.Controllers
                                  where ot.StatusId == 1002 // Assigned
                                  select ot).ToList();
             var orderTrackerDTO = MapperHelper.GetMapper().Map<List<OrderTrackerDTO>>(orderTrackerDb);  
-            return View(orderTrackerDb);
+            return View(orderTrackerDTO);
         }
 
        

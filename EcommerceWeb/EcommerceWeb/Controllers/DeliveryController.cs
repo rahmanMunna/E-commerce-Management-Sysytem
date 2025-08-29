@@ -37,8 +37,8 @@ namespace EcommerceWeb.Controllers
                 TempData["Msg"] = "No orders assigned to you";
                 TempData["Class"] = "text-danger";
             }
-            //var orderTrackerDTO = GetMapper().Map<List<OrderTrackerDTO>>(orderTrackerDb);
-            return View(orderTrackerDb);
+            var orderTrackerDTO = MapperHelper.GetMapper().Map<List<OrderTrackerDTO>>(orderTrackerDb);
+            return View(orderTrackerDTO);
         }
         [Logged]
         [DeliveryLogged]
@@ -64,7 +64,9 @@ namespace EcommerceWeb.Controllers
                                          where ot.DeliveryManId == user.DeliveryManId
                                          && ot.StatusId == 1003
                                          select ot).ToList();
-            return View(orderTrackerDb);
+
+            var orderTrackerDTO = MapperHelper.GetMapper().Map<List<OrderTrackerDTO>>(orderTrackerDb);
+            return View(orderTrackerDTO);
         }
 
         [Logged]
@@ -92,9 +94,11 @@ namespace EcommerceWeb.Controllers
             var user = GetUser();   
             var orderTrackerDb = (from ot in db.OrderTarckers
                                   where ot.StatusId == 6 && ot.DeliveryManId == user.DeliveryManId  
-                                  select ot).ToList();  
+                                  select ot).ToList();
 
-            return View(orderTrackerDb);
+            var orderTrackerDTO = MapperHelper.GetMapper().Map<List<OrderTrackerDTO>>(orderTrackerDb);
+
+            return View(orderTrackerDTO);
 
         }
 

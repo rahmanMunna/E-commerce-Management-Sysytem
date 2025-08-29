@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using EcommerceWeb.Auth;
+using EcommerceWeb.DTO;
 using EcommerceWeb.Ef;
+using EcommerceWeb.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,15 +35,17 @@ namespace EcommerceWeb.Controllers
         [CustomerLogged]
         public ActionResult ReceivedOrders()
         {
-            //need to implement DTO
+            
             var user = GetUser();
             var orderTrackerDb = (from ot in db.OrderTarckers 
                                   where ot.Order.CustomerId == user.CustomerId
                                   && ot.StatusId == 6 // Delivered
                                   select ot).ToList();
 
+            var orderTrackerDTO = MapperHelper.GetMapper().Map<List<OrderTrackerDTO>>(orderTrackerDb);
 
-            return View(orderTrackerDb);
+
+            return View(orderTrackerDTO);
         }
     }
 }

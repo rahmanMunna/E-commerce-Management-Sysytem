@@ -3,28 +3,12 @@
   "WorkspaceRootPath": "E:\\.Net Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\.net project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\controllers\\deliverycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\controllers\\deliverycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\.Net Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|E:\\.Net Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\ecommerceweb\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\.net project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\ef\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\ef\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\.net project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\dto\\orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\dto\\orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\.net project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\views\\order\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\views\\order\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|e:\\.net project\\e-commerce-management-sysytem\\ecommerceweb\\ecommerceweb\\helpers\\mapperhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EFE2AFA2-6071-4046-82FF-B12396801C3D}|EcommerceWeb\\EcommerceWeb.csproj|solutionrelative:ecommerceweb\\helpers\\mapperhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,82 +18,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OrderDTO.cs",
-              "DocumentMoniker": "E:\\.Net Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\DTO\\OrderDTO.cs",
-              "RelativeDocumentMoniker": "EcommerceWeb\\DTO\\OrderDTO.cs",
-              "ToolTip": "E:\\.Net Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\DTO\\OrderDTO.cs",
-              "RelativeToolTip": "EcommerceWeb\\DTO\\OrderDTO.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAgAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "DeliveryController.cs",
+              "DocumentMoniker": "E:\\.Net Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\DeliveryController.cs",
+              "RelativeDocumentMoniker": "EcommerceWeb\\Controllers\\DeliveryController.cs",
+              "ToolTip": "E:\\.Net Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\DeliveryController.cs",
+              "RelativeToolTip": "EcommerceWeb\\Controllers\\DeliveryController.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABsAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T06:38:45.476Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Order.cs",
-              "DocumentMoniker": "E:\\.Net Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Ef\\Order.cs",
-              "RelativeDocumentMoniker": "EcommerceWeb\\Ef\\Order.cs",
-              "ToolTip": "E:\\.Net Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Ef\\Order.cs",
-              "RelativeToolTip": "EcommerceWeb\\Ef\\Order.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAgwB4AAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T06:38:33.041Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Cart.cshtml",
-              "DocumentMoniker": "E:\\.Net Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Order\\Cart.cshtml",
-              "RelativeDocumentMoniker": "EcommerceWeb\\Views\\Order\\Cart.cshtml",
-              "ToolTip": "E:\\.Net Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Views\\Order\\Cart.cshtml",
-              "RelativeToolTip": "EcommerceWeb\\Views\\Order\\Cart.cshtml",
-              "ViewState": "AgIAALoAAAAAAAAAAAAAAMcAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-26T06:23:55.585Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MapperHelper.cs",
-              "DocumentMoniker": "E:\\.Net Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Helpers\\MapperHelper.cs",
-              "RelativeDocumentMoniker": "EcommerceWeb\\Helpers\\MapperHelper.cs",
-              "ToolTip": "E:\\.Net Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Helpers\\MapperHelper.cs",
-              "RelativeToolTip": "EcommerceWeb\\Helpers\\MapperHelper.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAzwBsAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T06:21:09.416Z",
+              "WhenOpened": "2025-08-29T19:03:55.432Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "OrderController.cs",
-              "DocumentMoniker": "E:\\.Net Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\OrderController.cs",
-              "RelativeDocumentMoniker": "EcommerceWeb\\Controllers\\OrderController.cs",
-              "ToolTip": "E:\\.Net Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\OrderController.cs",
-              "RelativeToolTip": "EcommerceWeb\\Controllers\\OrderController.cs",
-              "ViewState": "AgIAAOgAAAAAAAAAAAAuwPcAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T19:45:58.169Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "AdminController.cs",
               "DocumentMoniker": "E:\\.Net Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "EcommerceWeb\\Controllers\\AdminController.cs",
               "ToolTip": "E:\\.Net Project\\E-commerce-Management-Sysytem\\EcommerceWeb\\EcommerceWeb\\Controllers\\AdminController.cs",
               "RelativeToolTip": "EcommerceWeb\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAqwDMAAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAqwBQAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-25T18:42:39.306Z",
               "EditorCaption": ""

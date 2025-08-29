@@ -1,4 +1,5 @@
 ﻿using EcommerceWeb.Controllers;
+using EcommerceWeb.Ef;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,9 @@ namespace EcommerceWeb.DTO
         public virtual DeliveryManDTO DeliveryMan { get; set; }
         public virtual OrderDTO Order { get; set; }
         public virtual StatusDTO Status { get; set; }
+
+
+       
 
     }
 }

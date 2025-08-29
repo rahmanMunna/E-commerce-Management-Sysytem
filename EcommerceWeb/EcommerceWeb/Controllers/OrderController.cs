@@ -210,7 +210,7 @@ namespace EcommerceWeb.Controllers
                     return Json(new { qty = c.Qty,price = c.Price});                 
                 }
             }
-            //return RedirectToAction("Cart");
+           
             return Content("Something Wrong");
 
 
@@ -231,7 +231,7 @@ namespace EcommerceWeb.Controllers
 
                 }
             }
-            //return RedirectToAction("Cart");
+            
             return Content("Something Wrong");
 
         }
@@ -411,14 +411,11 @@ namespace EcommerceWeb.Controllers
         [CustomerLogged]
         public ActionResult RequestTracker()
         {
-            //var returnsTrackerDb = (from rt in db.ReturnsTrackers
-            //                       where rt.StatusId == 1006 // 1006 = requested
-            //                       select rt).ToList();
-
+           
             var returnsTrackerDb = db.ReturnsTrackers.ToList();
             var returnsTrackerDTO = MapperHelper.GetMapper().Map<List<ReturnsTrackerDTO>>(returnsTrackerDb);    
 
-            return View(returnsTrackerDTO);
+            return View(returnsTrackerDTO);     
         }
     }
 }
